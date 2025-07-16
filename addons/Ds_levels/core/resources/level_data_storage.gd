@@ -21,8 +21,6 @@ func add_data(data:LevelData) -> bool:
 	data_updated.emit()
 	return true
 	
-
-
 func edit_data(index:int, data:LevelData) -> bool:
 	if !level_datas:
 		return false
