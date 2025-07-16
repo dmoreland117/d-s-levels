@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="LoadingScreenDataStorage" load_steps=2 format=3 uid="uid://eqgchf4u8e0w"]
+[gd_resource type="Resource" script_class="LoadingScreenDataStorage" load_steps=2 format=3 uid="uid://c2smnfwdbch5h"]
 
-[ext_resource type="Script" uid="uid://dchxjprpg8u0i" path="res://addons/Ds_levels/core/resources/loading_screen_data_storage.gd" id="1_rboc1"]
+[ext_resource type="Script" path="res://addons/Ds_levels/core/resources/loading_screen_data_storage.gd" id="1_rboc1"]
 
 [resource]
 script = ExtResource("1_rboc1")

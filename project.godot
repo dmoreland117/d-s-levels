@@ -14,13 +14,9 @@ config/name="ds levels"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
-[d's_levels]
-
-directories/level_storage_path="res://level_storage.tres"
-
 [ds_levels]
 
-directories/level_storage_path="res://level_storage.tres"
+directories/level_storage_path="uid://b3d01qmrlj8ct"
 directories/loading_screen_storage_path="res://loading_screen_storage.tres"
 
 [editor_plugins]
