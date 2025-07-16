@@ -11,6 +11,7 @@ signal data_updated()
 
 		data_updated.emit()
 
+@export_file('*.tscn') var player_scene_path:String = ''
 
 func add_data(data:LevelData) -> bool:
 	if !level_datas:
@@ -21,8 +22,6 @@ func add_data(data:LevelData) -> bool:
 	data_updated.emit()
 	return true
 	
-
-
 func edit_data(index:int, data:LevelData) -> bool:
 	if !level_datas:
 		return false
@@ -57,6 +56,10 @@ func get_data_list() -> Array[LevelData]:
 	return level_datas
 
 func get_data_by_label(label:String) -> LevelData:
+	for data in level_datas:
+		if data.label == label:
+			return data
+	
 	return
 
 func get_data_by_index(index:int) -> LevelData:
@@ -77,7 +80,16 @@ func has_data(label:String) -> bool:
 			return true
 	
 	return false
+
+func get_player_scene_path() -> String:
+	if !player_scene_path:
+		return ''
 	
+	return player_scene_path
+
+func set_player_scene_path(path:String):
+	player_scene_path = path
+
 func save_at_settings_path() -> bool:
 	var storage_path = LevelManagerPlugin.get_levels_storage_path()
 	if !storage_path.is_valid_filename():
