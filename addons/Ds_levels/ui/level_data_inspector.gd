@@ -17,9 +17,11 @@ func _ready() -> void:
 	storage = LevelDataStorage.load_from_settings_path()
 	set_index(-1)
 	
-func set_index(index:int):
+func set_index(idx:int):
 	storage = LevelDataStorage.load_from_settings_path()
 	
+	index = idx
+
 	if !storage:
 		return
 	
