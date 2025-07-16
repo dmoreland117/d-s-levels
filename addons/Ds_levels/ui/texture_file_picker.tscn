@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1n1eoykc148g"]
+
+[ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_picker.tscn" id="1_yjq22"]
+
+[node name="texture_file_picker" type="HBoxContainer"]
+offset_right = 207.0
+offset_bottom = 32.0
+theme_override_constants/separation = 0
+
+[node name="texture_rext" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="file_picker" parent="." instance=ExtResource("1_yjq22")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="path_selected" from="file_picker" to="." method="_on_file_picker_path_selected"]
