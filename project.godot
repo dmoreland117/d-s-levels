@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="ds levels"
+run/main_scene="uid://b3gnp1whn38pv"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[d's_levels]
+
+directories/level_storage_path="res://level_storage.tres"
 
 [ds_levels]
 

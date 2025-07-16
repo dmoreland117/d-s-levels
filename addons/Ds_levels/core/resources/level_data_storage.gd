@@ -56,6 +56,10 @@ func get_data_list() -> Array[LevelData]:
 	return level_datas
 
 func get_data_by_label(label:String) -> LevelData:
+	for data in level_datas:
+		if data.label == label:
+			return data
+	
 	return
 
 func get_data_by_index(index:int) -> LevelData:

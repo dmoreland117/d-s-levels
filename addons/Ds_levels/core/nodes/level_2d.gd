@@ -47,7 +47,7 @@ func set_environment(env:Environment):
 	
 	world_environment.environment = env
 
-func get_spawn_points() -> Array[SpawnPoint2D]:
+func get_spawn_points() -> Array:
 	return LevelNodeUtils.get_spawn_points(self)
 
 func get_level_change_data() -> LevelChangeData:
@@ -85,7 +85,6 @@ func _set_current_spawn_point() -> bool:
 		return false
 		
 	current_spawn_point_node = LevelNodeUtils.get_current_spawn_point(
-		self, 
 		get_spawn_points(), 
 		level_change_data.spawn_point
 	)
