@@ -20,6 +20,8 @@ signal path_changed(path:String)
 		start_path = val
 		if path_input:
 			path_input.text = val
+		
+		current_path = val
 @export_enum('Open File:0', 'Open Dir:2') var file_mode:int
 
 var current_path:String

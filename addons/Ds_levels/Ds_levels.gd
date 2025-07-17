@@ -79,12 +79,14 @@ static func set_levels_storage_path(path:String):
 		return
 	
 	ProjectSettings.set_setting(LEVELS_RESOURCE_PATH_SETTING, path)
+	ProjectSettings.save()
 
 static func set_loading_screen_storage_path(path:String):
 	if !ProjectSettings.has_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING):
 		return
 	
 	ProjectSettings.set_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING, path)
+	ProjectSettings.save()
 	
 static func get_levels_storage_path() -> String:
 	return ProjectSettings.get_setting(LevelManagerPlugin.LEVELS_RESOURCE_PATH_SETTING)

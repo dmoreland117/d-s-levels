@@ -31,7 +31,7 @@ func _on_edit_button_pressed() -> void:
 	edit_pressed.emit(get_index())
 
 func _on_open_button_pressed() -> void:
-		edit_pressed.emit(get_index())
+		open_pressed.emit(get_index())
 
 func _on_remove_button_pressed() -> void:
 	remove_pressed.emit(get_index())

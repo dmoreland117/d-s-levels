@@ -13,6 +13,7 @@ var storage:LevelDataStorage
 
 
 func _ready() -> void:
+	storage = LevelDataStorage.load_from_settings_path()
 	_add_icons()
 	
 	_set_up_level_storage()
@@ -84,7 +85,7 @@ func _on_levels_table_remove_pressed(index: int) -> void:
 	if !storage:
 		return
 	
-	storage.remove_data(index)
+	PopupUtils.show_remove_level_popup(index)
 
 func _on_refresh_levels_button_pressed() -> void:
 	if !storage:
@@ -103,3 +104,11 @@ func _on_refresh_levels_button_pressed() -> void:
 
 func _on_levels_table_edit_pressed(index: int) -> void:
 	edit_pressed.emit(index)
+
+
+func _on_levels_table_open_pressed(index: int) -> void:
+	if !storage:
+		return
+	
+	var data = storage.get_data_by_index(index)
+	EditorInterface.open_scene_from_path(data.level_path)

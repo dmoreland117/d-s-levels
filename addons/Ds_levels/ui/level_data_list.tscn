@@ -96,4 +96,5 @@ layout_mode = 2
 [connection signal="pressed" from="HBoxContainer/refresh_levels_button" to="." method="_on_refresh_levels_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/select_storage_path_button" to="." method="_on_select_storage_path_button_pressed"]
 [connection signal="edit_pressed" from="Panel/MarginContainer/levels_table" to="." method="_on_levels_table_edit_pressed"]
+[connection signal="open_pressed" from="Panel/MarginContainer/levels_table" to="." method="_on_levels_table_open_pressed"]
 [connection signal="remove_pressed" from="Panel/MarginContainer/levels_table" to="." method="_on_levels_table_remove_pressed"]

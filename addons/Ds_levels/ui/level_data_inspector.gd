@@ -7,6 +7,7 @@ extends VBoxContainer
 @onready var level_path_picker: LineFilePicker = %level_path_picker
 @onready var show_level_loading_screen_input: CheckBox = %show_level_loading_screen_input
 @onready var texture_file_picker: HBoxContainer = %texture_file_picker
+@onready var margin_container: MarginContainer = %MarginContainer
 
 var index:int = -1
 var storage:LevelDataStorage
@@ -21,17 +22,17 @@ func set_index(idx:int):
 	storage = LevelDataStorage.load_from_settings_path()
 	
 	index = idx
-
-	if !storage:
-		return
 	
-	if index == -1:
+	if index == -1 or !storage:
 		data = null
 	
 		level_label_input.text = ''
 		level_description_input.text = ''
 		level_path_picker.current_path = ''
 		show_level_loading_screen_input.toggle_mode = false
+		
+		margin_container.hide()
+		
 		return
 	
 	data = storage.get_data_by_index(index)
@@ -40,6 +41,7 @@ func set_index(idx:int):
 	level_description_input.text = data.description
 	level_path_picker.current_path = data.level_path
 	show_level_loading_screen_input.toggle_mode = data.show_loading_screen
+	margin_container.show()
 
 func _on_save_button_pressed() -> void:
 	if !storage:
