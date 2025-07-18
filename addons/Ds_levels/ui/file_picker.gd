@@ -24,7 +24,10 @@ signal path_changed(path:String)
 		current_path = val
 @export_enum('Open File:0', 'Open Dir:2') var file_mode:int
 
-var current_path:String
+var current_path:String:
+	set(val):
+		current_path = val
+		_update_line_edit_text()
 
 
 func _ready() -> void:
@@ -46,6 +49,9 @@ func _check_nodes() -> bool:
 	return true
 
 func _update_line_edit_text():
+	if !path_input:
+		return
+		
 	path_input.text = current_path
 
 func _on_path_input_text_changed(new_text: String) -> void:

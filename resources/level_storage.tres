@@ -9,7 +9,7 @@ label = "lvl1"
 description = "a test level"
 level_path = "res://lvl_1.tscn"
 loading_screen_background_path = ""
-loading_screen_name = ""
+loading_screen_name = "test"
 show_loading_screen = false
 
 [sub_resource type="Resource" id="Resource_5nasy"]
@@ -17,8 +17,8 @@ script = ExtResource("1_jlsho")
 label = "lvl2"
 description = "a second test level"
 level_path = "res://lvl_2.tscn"
-loading_screen_background_path = ""
-loading_screen_name = ""
+loading_screen_background_path = "uid://ek6xnp7pvknd"
+loading_screen_name = "new_loading_screen"
 show_loading_screen = false
 
 [resource]

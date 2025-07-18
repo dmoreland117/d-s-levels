@@ -1,20 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx7vy23ulbssi"]
+[gd_scene load_steps=3 format=3 uid="uid://ri70gyj1we28"]
 
 [ext_resource type="Script" uid="uid://yp6phy77s6qo" path="res://addons/Ds_levels/ui/loading_screen_edit.gd" id="1_xnvsa"]
 [ext_resource type="PackedScene" uid="uid://86wp7jhk0f6u" path="res://addons/Ds_levels/ui/loading_screens_table.tscn" id="2_fd47w"]
 
 [node name="loading_screen_edit" type="VBoxContainer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 script = ExtResource("1_xnvsa")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="HBoxContainer"]
+[node name="add_screen_butto" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "Add"
 
-[node name="Button2" type="Button" parent="HBoxContainer"]
+[node name="refresh_screens_button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Refresh
+"
+
+[node name="Button3" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "Select Storage Path"
 
@@ -35,4 +46,10 @@ theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="loading_screens_table" parent="Panel/MarginContainer" instance=ExtResource("2_fd47w")]
+unique_name_in_owner = true
 layout_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/add_screen_butto" to="." method="_on_add_screen_butto_pressed"]
+[connection signal="pressed" from="HBoxContainer/refresh_screens_button" to="." method="_on_refresh_screens_button_pressed"]
+[connection signal="remove_pressed" from="Panel/MarginContainer/loading_screens_table" to="." method="_on_loading_screens_table_remove_pressed"]
+[connection signal="row_edited" from="Panel/MarginContainer/loading_screens_table" to="." method="_on_loading_screens_table_row_edited"]

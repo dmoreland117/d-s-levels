@@ -36,11 +36,13 @@ grow_vertical = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+text = "[Error]"
 
 [node name="loading_screen_path_picker" parent="unlocked" instance=ExtResource("1_n82o7")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+start_path = "[Error]"
 
 [node name="remove_button" type="Button" parent="unlocked"]
 unique_name_in_owner = true

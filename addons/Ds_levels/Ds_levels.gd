@@ -46,20 +46,17 @@ func _remove_main_screen_ui():
 	main_screen_ui.queue_free()
 
 func _add_resource_paths_to_project_settings():
-	if ProjectSettings.has_setting(LEVELS_RESOURCE_PATH_SETTING):
-		return
+	if !ProjectSettings.has_setting(LEVELS_RESOURCE_PATH_SETTING):
+		ProjectSettings.set_setting(LEVELS_RESOURCE_PATH_SETTING, 'res://')
 	
-	ProjectSettings.set_setting(LEVELS_RESOURCE_PATH_SETTING, DEFAULT_LEVELS_PATH)
+	if !ProjectSettings.has_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING):
+		ProjectSettings.set_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING, 'res://')
+		
 	ProjectSettings.add_property_info({
 		'name': LEVELS_RESOURCE_PATH_SETTING,
 		'type': TYPE_STRING,
 		'hint': PROPERTY_HINT_FILE
 	})
-	
-	if ProjectSettings.has_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING):
-		return
-	
-	ProjectSettings.set_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING, DEFAULT_LOADING_SCREENS_PATH)
 	ProjectSettings.add_property_info({
 		'name': LOADING_SCREENS_RESOURCE_PATH_SETTING,
 		'type': TYPE_STRING,

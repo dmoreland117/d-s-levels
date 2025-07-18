@@ -79,6 +79,7 @@ static func _show_loading_screen(data:LevelData):
 	if !loading_screen_path:
 		return
 	
+	
 	loading_screen = LoadingScreenUtils.load_from_path(loading_screen_path, data)
 	loading_screen_container.add_child(loading_screen)
 

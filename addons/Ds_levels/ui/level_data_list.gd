@@ -13,7 +13,6 @@ var storage:LevelDataStorage
 
 
 func _ready() -> void:
-	storage = LevelDataStorage.load_from_settings_path()
 	_add_icons()
 	
 	_set_up_level_storage()
@@ -40,7 +39,10 @@ func _set_up_level_storage():
 		return
 	
 	storage.data_updated.connect(_level_data_updated)
+
 func _populate_levels_list():
+	levels_table.clear_table()
+	
 	if !levels_table:
 		return
 	
@@ -98,7 +100,6 @@ func _on_refresh_levels_button_pressed() -> void:
 	if !levels_table:
 		return
 	
-	levels_table.clear_table()
 	_populate_levels_list()
 
 

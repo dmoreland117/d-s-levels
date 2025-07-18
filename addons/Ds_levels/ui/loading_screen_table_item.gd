@@ -20,15 +20,17 @@ func _ready() -> void:
 func _on_remove_button_pressed() -> void:
 	remove_pressed.emit(get_index())
 
-func _on_loading_screen_label_input_editing_toggled(toggled_on: bool) -> void:
-	if !toggled_on:
-		data_changed.emit(get_index(), {
-			'label': loading_screen_label_input.text,
-			'path': loading_screen_path_picker.current_path
-		})
-
 func _on_loading_screen_path_picker_path_changed(path: String) -> void:
 	data_changed.emit(get_index(), {
 			'label': loading_screen_label_input.text,
 			'path': path
+		})
+
+func _on_loading_screen_label_input_editing_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		return
+	
+	data_changed.emit(get_index(), {
+			'label': loading_screen_label_input.text,
+			'path': loading_screen_path_picker.current_path
 		})

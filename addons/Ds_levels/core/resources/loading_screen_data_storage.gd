@@ -13,16 +13,15 @@ signal data_updated()
 
 
 func add_data(label:String, path:String) -> bool:
-	if !loading_screen_datas:
-		return false
 	
 	loading_screen_datas.append(
 		{
-			'label':label,
+			'label': label,
 			'path': path
 		}
 	)
 	
+	save_at_settings_path()
 	data_updated.emit()
 	return true
 	
@@ -35,6 +34,7 @@ func edit_data(index:int, data:Dictionary) -> bool:
 	
 	loading_screen_datas[index] = data
 	
+	save_at_settings_path()
 	data_updated.emit()
 	return true
 	
@@ -47,6 +47,7 @@ func remove_data(index:int) -> bool:
 	
 	loading_screen_datas.remove_at(index)
 	
+	save_at_settings_path()
 	data_updated.emit()
 	return true
 	
@@ -74,7 +75,20 @@ func get_data_by_index(index:int) -> Dictionary:
 		return {}
 	
 	return loading_screen_datas[index]
+
+func get_index_by_label(label:String) -> int:
+	if !loading_screen_datas:
+		return -1
 	
+	var i = 0
+	for data in loading_screen_datas:
+		if data.get('label', '') == label:
+			return i
+		
+		i += 1
+	
+	return -1
+
 func has_data(label:String) -> bool:
 	if !loading_screen_datas:
 		return false
@@ -87,10 +101,12 @@ func has_data(label:String) -> bool:
 	
 func save_at_settings_path() -> bool:
 	var storage_path = LevelManagerPlugin.get_loading_screen_storage_path()
-	if !storage_path.is_valid_filename():
-		return false
 
-	ResourceSaver.save(self, storage_path)
+	var err = ResourceSaver.save(self, storage_path)
+	if err != OK:
+		printerr('Failed loading resource at path: %s code:%d ' % [storage_path, err])
+		return false
+		
 	return true
 	
 static func load_from_settings_path() -> LoadingScreenDataStorage:

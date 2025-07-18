@@ -68,14 +68,16 @@ layout_mode = 2
 self_modulate = Color(0.791999, 0.791999, 0.791999, 1)
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Label"
 clip_text = true
 text_overrun_behavior = 3
 
 [node name="level_label_input" type="LineEdit" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -84,14 +86,16 @@ layout_mode = 2
 self_modulate = Color(0.791999, 0.791999, 0.791999, 1)
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Description"
 clip_text = true
 text_overrun_behavior = 3
 
 [node name="level_description_input" type="LineEdit" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -100,14 +104,16 @@ layout_mode = 2
 self_modulate = Color(0.791999, 0.791999, 0.791999, 1)
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Path"
 clip_text = true
 text_overrun_behavior = 3
 
 [node name="level_path_picker" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("1_gbbwo")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -116,15 +122,34 @@ layout_mode = 2
 self_modulate = Color(0.791999, 0.791999, 0.791999, 1)
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Show Loading Screen"
 clip_text = true
 text_overrun_behavior = 3
 
 [node name="show_level_loading_screen_input" type="CheckBox" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer4"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-toggle_mode = false
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer6"]
+self_modulate = Color(0.791999, 0.791999, 0.791999, 1)
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Loading Screen Name"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="loading_screen_label_dropdown" type="OptionButton" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer6"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 10
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -133,14 +158,16 @@ layout_mode = 2
 self_modulate = Color(0.791999, 0.791999, 0.791999, 1)
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Loading Screen Background"
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="texture_file_picker" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("2_6lqfa")]
+[node name="loading_screen_background_picker" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("2_6lqfa")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 
 [connection signal="pressed" from="HBoxContainer/save_button" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/reset_button" to="." method="_on_reset_button_pressed"]

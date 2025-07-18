@@ -92,10 +92,12 @@ func set_player_scene_path(path:String):
 
 func save_at_settings_path() -> bool:
 	var storage_path = LevelManagerPlugin.get_levels_storage_path()
-	if !storage_path.is_valid_filename():
-		return false
 
-	ResourceSaver.save(self, storage_path)
+	var err = ResourceSaver.save(self, storage_path)
+	if err != OK:
+		printerr('Failed loading resource at path: %s code:%d ' % [storage_path, err])
+		return false
+	
 	return true
 
 static func load_from_settings_path() -> LevelDataStorage:
