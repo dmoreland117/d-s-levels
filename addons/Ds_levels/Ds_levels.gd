@@ -22,6 +22,9 @@ func _exit_tree() -> void:
 func _get_plugin_name() -> String:
 	return 'Levels'
 
+func _get_plugin_icon() -> Texture2D:
+	return load("res://addons/Ds_levels/icon.svg")
+
 func _has_main_screen() -> bool:
 	return true
 

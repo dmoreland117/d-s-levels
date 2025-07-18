@@ -6,7 +6,7 @@
 [sub_resource type="Resource" id="Resource_n0c0d"]
 script = ExtResource("1_jlsho")
 label = "lvl1"
-description = ""
+description = "a test level"
 level_path = "res://lvl_1.tscn"
 loading_screen_background_path = ""
 loading_screen_name = ""
