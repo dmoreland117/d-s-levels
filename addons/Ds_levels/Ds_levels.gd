@@ -22,6 +22,9 @@ func _exit_tree() -> void:
 func _get_plugin_name() -> String:
 	return 'Levels'
 
+func _get_plugin_icon() -> Texture2D:
+	return load("res://addons/Ds_levels/icon.svg")
+
 func _has_main_screen() -> bool:
 	return true
 
@@ -43,20 +46,17 @@ func _remove_main_screen_ui():
 	main_screen_ui.queue_free()
 
 func _add_resource_paths_to_project_settings():
-	if ProjectSettings.has_setting(LEVELS_RESOURCE_PATH_SETTING):
-		return
+	if !ProjectSettings.has_setting(LEVELS_RESOURCE_PATH_SETTING):
+		ProjectSettings.set_setting(LEVELS_RESOURCE_PATH_SETTING, 'res://')
 	
-	ProjectSettings.set_setting(LEVELS_RESOURCE_PATH_SETTING, DEFAULT_LEVELS_PATH)
+	if !ProjectSettings.has_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING):
+		ProjectSettings.set_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING, 'res://')
+		
 	ProjectSettings.add_property_info({
 		'name': LEVELS_RESOURCE_PATH_SETTING,
 		'type': TYPE_STRING,
 		'hint': PROPERTY_HINT_FILE
 	})
-	
-	if ProjectSettings.has_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING):
-		return
-	
-	ProjectSettings.set_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING, DEFAULT_LOADING_SCREENS_PATH)
 	ProjectSettings.add_property_info({
 		'name': LOADING_SCREENS_RESOURCE_PATH_SETTING,
 		'type': TYPE_STRING,
@@ -79,12 +79,14 @@ static func set_levels_storage_path(path:String):
 		return
 	
 	ProjectSettings.set_setting(LEVELS_RESOURCE_PATH_SETTING, path)
+	ProjectSettings.save()
 
 static func set_loading_screen_storage_path(path:String):
 	if !ProjectSettings.has_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING):
 		return
 	
 	ProjectSettings.set_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING, path)
+	ProjectSettings.save()
 	
 static func get_levels_storage_path() -> String:
 	return ProjectSettings.get_setting(LevelManagerPlugin.LEVELS_RESOURCE_PATH_SETTING)

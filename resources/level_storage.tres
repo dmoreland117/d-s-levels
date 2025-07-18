@@ -1,47 +1,28 @@
-[gd_resource type="Resource" script_class="LevelDataStorage" load_steps=7 format=3 uid="uid://b3d01qmrlj8ct"]
+[gd_resource type="Resource" script_class="LevelDataStorage" load_steps=5 format=3 uid="uid://b3d01qmrlj8ct"]
 
 [ext_resource type="Script" uid="uid://16mp7ytgumhi" path="res://addons/Ds_levels/core/resources/level_data.gd" id="1_jlsho"]
 [ext_resource type="Script" uid="uid://cumt88jtcck2v" path="res://addons/Ds_levels/core/resources/level_data_storage.gd" id="2_l4ln2"]
 
-[sub_resource type="Resource" id="Resource_jlsho"]
-script = ExtResource("1_jlsho")
-label = "d"
-description = "dd"
-level_path = "res://d"
-loading_screen_background_path = "dddd"
-loading_screen_name = ""
-show_loading_screen = false
-metadata/_custom_type_script = "uid://16mp7ytgumhi"
-
-[sub_resource type="Resource" id="Resource_l4ln2"]
-script = ExtResource("1_jlsho")
-label = "dung"
-description = "a dungeon"
-level_path = "res://ddd"
-loading_screen_background_path = ""
-loading_screen_name = ""
-show_loading_screen = false
-
 [sub_resource type="Resource" id="Resource_n0c0d"]
 script = ExtResource("1_jlsho")
 label = "lvl1"
-description = ""
+description = "a test level"
 level_path = "res://lvl_1.tscn"
 loading_screen_background_path = ""
-loading_screen_name = ""
+loading_screen_name = "test"
 show_loading_screen = false
 
 [sub_resource type="Resource" id="Resource_5nasy"]
 script = ExtResource("1_jlsho")
 label = "lvl2"
-description = ""
+description = "a second test level"
 level_path = "res://lvl_2.tscn"
-loading_screen_background_path = ""
-loading_screen_name = ""
+loading_screen_background_path = "uid://ek6xnp7pvknd"
+loading_screen_name = "new_loading_screen"
 show_loading_screen = false
 
 [resource]
 script = ExtResource("2_l4ln2")
-level_datas = Array[ExtResource("1_jlsho")]([SubResource("Resource_jlsho"), SubResource("Resource_l4ln2"), SubResource("Resource_n0c0d"), SubResource("Resource_5nasy")])
+level_datas = Array[ExtResource("1_jlsho")]([SubResource("Resource_n0c0d"), SubResource("Resource_5nasy")])
 player_scene_path = ""
 metadata/_custom_type_script = "uid://cumt88jtcck2v"

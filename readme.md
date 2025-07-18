@@ -1,3 +1,6 @@
+
+![Level Manager UI](screenshots/level_manager_screen.png)
+
 # D's Level Manager
 A Level Manager built for the Godot Engine using GDScript
 

@@ -1,8 +1,14 @@
-[gd_resource type="Resource" script_class="LoadingScreenDataStorage" load_steps=2 format=3 uid="uid://c2smnfwdbch5h"]
+[gd_resource type="Resource" script_class="LoadingScreenDataStorage" load_steps=2 format=3 uid="uid://budwmcp41bn3k"]
 
-[ext_resource type="Script" path="res://addons/Ds_levels/core/resources/loading_screen_data_storage.gd" id="1_rboc1"]
+[ext_resource type="Script" uid="uid://dchxjprpg8u0i" path="res://addons/Ds_levels/core/resources/loading_screen_data_storage.gd" id="1_rboc1"]
 
 [resource]
 script = ExtResource("1_rboc1")
-loading_screen_datas = Array[Dictionary]([])
+loading_screen_datas = Array[Dictionary]([{
+"label": "new_loading_screen",
+"path": "res://addons/Ds_levels/loading_screens/default_loading_screen.tscn"
+}, {
+"label": "test",
+"path": "res://"
+}])
 metadata/_custom_type_script = "uid://dchxjprpg8u0i"
