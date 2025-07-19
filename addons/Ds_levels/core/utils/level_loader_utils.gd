@@ -74,6 +74,18 @@ func get_load_progress(label:String) -> int:
 	
 	return progress[0] * 100
 
+func get_loading_levels() -> Dictionary:
+	if !loading_levels:
+		return {}
+	
+	return loading_levels
+
+func get_load_path(label:String) -> String:
+	if !loading_levels:
+		return ''
+	
+	return loading_levels.get(label, '')
+
 func _set_level_change_data(level, data:LevelData, spawn:String):
 	var change_data = LevelChangeData.new()
 	change_data.change_args = {}

@@ -19,9 +19,11 @@ func _ready() -> void:
 
 func _on_accept_button_pressed() -> void:
 	if !data:
+		PopupUtils.show_error_popup('Failed to add Level')
 		return
 	
 	if !storage:
+		PopupUtils.show_error_popup('Failed to add Level')
 		return
 	
 	data.label = level_label_input.text

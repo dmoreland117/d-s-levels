@@ -44,9 +44,9 @@ static func get_level_storage() -> LevelDataStorage:
 
 static func get_loader() -> LevelLoader:
 	if !loader:
-		return loader
+		return
 	
-	return
+	return loader
 
 static func _set_level_container(container:Node):
 	loader = LevelLoader.new()

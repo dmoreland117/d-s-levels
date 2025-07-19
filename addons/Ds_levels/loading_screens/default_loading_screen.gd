@@ -25,3 +25,4 @@ func _on_progress_updated(progress: int) -> void:
 		return
 	
 	progress_bar.value = progress
+	print(progress)

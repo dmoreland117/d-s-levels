@@ -5,10 +5,10 @@
 [resource]
 script = ExtResource("1_rboc1")
 loading_screen_datas = Array[Dictionary]([{
-"label": "new_loading_screen",
+"label": "default",
 "path": "res://addons/Ds_levels/loading_screens/default_loading_screen.tscn"
 }, {
-"label": "test",
-"path": "res://"
+"label": "default_2",
+"path": "res://addons/Ds_levels/loading_screens/default_loading_screen_2.tscn"
 }])
 metadata/_custom_type_script = "uid://dchxjprpg8u0i"

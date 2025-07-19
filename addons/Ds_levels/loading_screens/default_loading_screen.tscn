@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dnp77wkkqeq57" path="res://addons/Ds_levels/loading_screens/valley-landscape-aesthetic-mountains-gradient-background-6318x2633-4589.jpg" id="2_dgsu1"]
 
 [sub_resource type="Gradient" id="Gradient_jgisd"]
-colors = PackedColorArray(0, 0, 0, 0.568627, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0, 0.353261, 1)
+colors = PackedColorArray(0, 0, 0, 0.662745, 0, 0, 0, 0.615686, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4a51b"]
 gradient = SubResource("Gradient_jgisd")

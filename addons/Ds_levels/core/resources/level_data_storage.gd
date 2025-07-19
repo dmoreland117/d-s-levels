@@ -15,7 +15,7 @@ signal data_updated()
 
 func add_data(data:LevelData) -> bool:
 	if !level_datas:
-		return false
+		level_datas = []
 	
 	level_datas.append(data)
 	save_at_settings_path()

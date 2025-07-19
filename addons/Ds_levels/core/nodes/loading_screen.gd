@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 	if !level_data:
 		return
 	
+	var loader = Levels.get_loader()
 	var prog = Levels.get_loader().get_load_progress(level_data.label)
 	if prog:
 		progress_updated.emit(prog)
