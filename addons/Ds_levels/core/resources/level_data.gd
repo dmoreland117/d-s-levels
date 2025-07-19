@@ -18,7 +18,6 @@ func to_dict():
 		'loading_screen_name': loading_screen_name,
 		'show_loading_screen' : show_loading_screen
 	}
-	print(ret)
 	return ret
 
 static func from_dict(dict:Dictionary) ->LevelData:

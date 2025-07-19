@@ -103,16 +103,11 @@ static func save_at_settings_path() -> bool:
 	for data in level_datas:
 		datas.append(data.to_dict())
 	
-	if datas.is_empty():
-		datas = []
-	
 	var dict = {
 		'datas': datas,
 		'player_path': player_scene_path,
 		'start_index': start_level_index
 	}
-	
-	print(dict)
 	
 	var file = FileAccess.open(LevelManagerPlugin.get_levels_storage_path(), FileAccess.WRITE)
 	var dict_string = str(dict)
@@ -126,18 +121,15 @@ static func load_from_settings_path() -> bool:
 		
 	var path = LevelManagerPlugin.get_levels_storage_path()
 	if !FileAccess.file_exists(path):
-		var file = FileAccess.open(path, FileAccess.WRITE)
-		if !file:
+		if !save_at_settings_path():
+			printerr('Level_data_storage Failed to create file')
 			return false
-		
-		save_at_settings_path()
-	
+			
 	var dict_string = FileAccess.get_file_as_string(LevelManagerPlugin.get_levels_storage_path())
 	if dict_string.is_empty():
-		return false
+		save_at_settings_path()
 	
 	var dict:Dictionary = JSON.parse_string(dict_string)
-	print(dict)
 	if !dict:
 		print('failed parsing json')
 		return false

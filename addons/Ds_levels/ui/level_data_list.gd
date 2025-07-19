@@ -11,17 +11,11 @@ signal edit_pressed(index:int)
 
 
 func _ready() -> void:
-	_add_icons()
-	
-	_set_up_level_storage()
-	
-	if !LevelDataStorage.is_storage_loaded():
+	if !LevelDataStorage.load_from_settings_path():
+		printerr('Level_manager_ui Failed to load level storage')
 		return
 	
-	levels_table.edit_pressed.connect(
-		func(index):
-			edit_pressed.emit(index)
-	)
+	_add_icons()
 	
 	_populate_levels_list()
 
@@ -30,10 +24,6 @@ func _add_icons():
 	add_level_button.icon = editor_theme.get_icon('Add', 'EditorIcons')
 	refresh_levels_button.icon = editor_theme.get_icon('Reload', 'EditorIcons')
 	select_storage_path_button.icon = editor_theme.get_icon('ResourcePreloader', 'EditorIcons')
-
-func _set_up_level_storage():
-	if !LevelDataStorage.is_storage_loaded():
-		return
 	
 func _populate_levels_list():
 	levels_table.clear_table()
@@ -51,16 +41,6 @@ func _populate_levels_list():
 			
 		levels_table.add_row(level.label, level.description, level.level_path)
 
-func _level_data_updated():
-	if !LevelDataStorage.is_storage_loaded():
-		return
-	
-	if !levels_table:
-		return
-
-	levels_table.clear_table()
-	_populate_levels_list()
-
 func _on_add_level_button_pressed() -> void:
 	if !LevelDataStorage.is_storage_loaded():
 		PopupUtils.show_error_popup('Please select Level Storage Path.')
@@ -72,41 +52,27 @@ func _on_select_storage_path_button_pressed() -> void:
 	PopupUtils.show_select_storage_path_popup()
 
 func _on_visibility_changed() -> void:
-	if !LevelDataStorage.is_storage_loaded():
-		_set_up_level_storage()
-	
-	if !levels_table:
-		return
-	
-	levels_table.clear_table()
 	_populate_levels_list()
 
 func _on_levels_table_remove_pressed(index: int) -> void:
 	if !LevelDataStorage.is_storage_loaded():
+		PopupUtils.show_error_popup('Error removing Level. Cant load Level Storage at path %s' % LevelManagerPlugin.get_levels_storage_path())
 		return
 	
 	PopupUtils.show_remove_level_popup(index)
 
 func _on_refresh_levels_button_pressed() -> void:
 	if !LevelDataStorage.is_storage_loaded():
-		_set_up_level_storage()
-		
-		if !LevelDataStorage.is_storage_loaded():
 			PopupUtils.show_error_popup('Could not load LevelDataStorage from the provided path\n%s' % LevelManagerPlugin.get_levels_storage_path())
-			
-	
-	if !levels_table:
-		return
-	
+		
 	_populate_levels_list()
-
 
 func _on_levels_table_edit_pressed(index: int) -> void:
 	edit_pressed.emit(index)
 
-
 func _on_levels_table_open_pressed(index: int) -> void:
 	if !LevelDataStorage.is_storage_loaded():
+		PopupUtils.show_error_popup('Could not load LevelDataStorage from the provided path\n%s' % LevelManagerPlugin.get_levels_storage_path())
 		return
 	
 	var data = LevelDataStorage.get_data_by_index(index)
