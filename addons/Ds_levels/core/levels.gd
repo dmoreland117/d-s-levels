@@ -16,13 +16,17 @@ static var loading_screen_storage:LoadingScreenDataStorage
 static func load_level_in_background():
 	pass
 
+static func change_to_start_level(spawn:String, args:Dictionary):
+	if !storage:
+		return
+	
+	var data = storage.get_start_level()
+	change_to_level(data, spawn, args)
+
 static func change_to_level(level:LevelData, spawn:String, args:Dictionary):
 	loader.load_from_data(level, spawn)
 	if level.show_loading_screen:
 		_show_loading_screen(level)
-
-static func change_to_start_level():
-	pass
 
 static func get_levels() -> Array[LevelData]:
 	if !storage:

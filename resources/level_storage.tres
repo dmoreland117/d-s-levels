@@ -16,4 +16,5 @@ show_loading_screen = true
 script = ExtResource("2_l4ln2")
 level_datas = Array[ExtResource("1_jlsho")]([SubResource("Resource_jlsho")])
 player_scene_path = ""
+start_level_index = 0
 metadata/_custom_type_script = "uid://cumt88jtcck2v"

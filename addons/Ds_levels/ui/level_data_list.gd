@@ -50,12 +50,15 @@ func _populate_levels_list():
 		return
 	
 	for level in storage.get_data_list():
+		if storage.is_start_level(level):
+			levels_table.add_row(level.label + ' (Start)', level.description, level.level_path)
+			continue
+			
 		levels_table.add_row(level.label, level.description, level.level_path)
 
 func _level_data_updated():
-	print('added')
 	if !storage:
-		_set_up_level_storage()
+		return
 	
 	if !levels_table:
 		return

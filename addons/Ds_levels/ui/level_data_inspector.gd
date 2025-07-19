@@ -79,3 +79,10 @@ func _on_reset_button_pressed() -> void:
 
 func _on_clear_button_pressed() -> void:
 	pass # Replace with function body.
+
+func _on_set_default_button_pressed() -> void:
+	if !storage:
+		PopupUtils.show_error_popup('Failed to set default Level')
+		return
+	
+	storage.set_start_level(index)
