@@ -9,17 +9,12 @@ var loading_levels:Dictionary = {}
 var level_datas:Dictionary = {}
 var level_spawns:Dictionary = {}
 
-var storage:LevelDataStorage
-
 
 func _init() -> void:
-	storage = LevelDataStorage.load_from_settings_path()
-	if !storage:
-		printerr('Failed to load level storage')
-		return
+	pass
 
 func load_from_path(path:String, spawn:String, data = null):
-	if !storage:
+	if !LevelDataStorage.is_storage_loaded():
 		return
 	
 	if !ResourceLoader.exists(path):
@@ -29,7 +24,7 @@ func load_from_path(path:String, spawn:String, data = null):
 	var level_data:LevelData
 	
 	if !data:
-		for lev_data in storage.get_data_list():
+		for lev_data in LevelDataStorage.get_data_list():
 			if lev_data.level_path == path:
 				level_data = lev_data
 	
@@ -59,10 +54,10 @@ func load_from_data(data:LevelData, spawn:String):
 	load_from_path(data.level_path, spawn, data)
 
 func load_level_by_label(label:String, spawn:String):
-	if !storage:
+	if !LevelDataStorage:
 		return
 	
-	var data = storage.get_data_by_label(label)
+	var data = LevelDataStorage.get_data_by_label(label)
 	load_from_path(data.level_path, spawn, data)
 
 func get_load_progress(label:String) -> int:

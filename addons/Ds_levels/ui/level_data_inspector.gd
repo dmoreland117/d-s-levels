@@ -11,20 +11,16 @@ extends VBoxContainer
 @onready var loading_screen_label_dropdown: OptionButton = %loading_screen_label_dropdown
 
 var index:int = -1
-var storage:LevelDataStorage
 var data:LevelData
 
 
 func _ready() -> void:
-	storage = LevelDataStorage.load_from_settings_path()
 	set_index(-1)
 	
 func set_index(idx:int):
-	storage = LevelDataStorage.load_from_settings_path()
-	
 	index = idx
 	
-	if index == -1 or !storage:
+	if index == -1 or !LevelDataStorage.is_storage_loaded():
 		data = null
 	
 		level_label_input.text = ''
@@ -36,7 +32,7 @@ func set_index(idx:int):
 		
 		return
 	
-	data = storage.get_data_by_index(index)
+	data = LevelDataStorage.get_data_by_index(index)
 	
 	level_label_input.text = data.label
 	level_description_input.text = data.description
@@ -61,7 +57,7 @@ func set_index(idx:int):
 	margin_container.show()
 
 func _on_save_button_pressed() -> void:
-	if !storage:
+	if !LevelDataStorage.is_storage_loaded():
 		return
 		
 	data.label = level_label_input.text
@@ -72,7 +68,7 @@ func _on_save_button_pressed() -> void:
 	data.loading_screen_name = loading_screen_label_dropdown.get_item_text(
 		loading_screen_label_dropdown.selected
 	)
-	storage.edit_data(index, data)
+	LevelDataStorage.edit_data(index, data)
 
 func _on_reset_button_pressed() -> void:
 	pass # Replace with function body.
@@ -81,8 +77,8 @@ func _on_clear_button_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_set_default_button_pressed() -> void:
-	if !storage:
+	if !LevelDataStorage.is_storage_loaded():
 		PopupUtils.show_error_popup('Failed to set default Level')
 		return
 	
-	storage.set_start_level(index)
+	LevelDataStorage.set_start_level(index)
