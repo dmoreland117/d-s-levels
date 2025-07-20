@@ -40,17 +40,14 @@ func set_index(idx:int):
 	show_level_loading_screen_input.button_pressed = data.show_loading_screen
 	
 	loading_screen_label_dropdown.clear()
-	var loading_screen_storage = LoadingScreenDataStorage.load_from_settings_path()
-	if !loading_screen_storage:
-		return
-	
-	var loading_screen_datas = loading_screen_storage.get_data_list()
-	for screen in loading_screen_datas:
-		loading_screen_label_dropdown.add_item(screen.get('label', '[Error]'))
-	
-	loading_screen_label_dropdown.select(
-		loading_screen_storage.get_index_by_label(data.loading_screen_name)
-	)
+	if LoadingScreenDataStorage.is_storage_loaded():
+		var loading_screen_datas = LoadingScreenDataStorage.get_data_list()
+		for screen in loading_screen_datas:
+			loading_screen_label_dropdown.add_item(screen.get('label', '[Error]'))
+		
+		loading_screen_label_dropdown.select(
+			LoadingScreenDataStorage.get_index_by_label(data.loading_screen_name)
+		)
 	
 	loading_screen_background_picker.current_path = data.loading_screen_background_path
 	

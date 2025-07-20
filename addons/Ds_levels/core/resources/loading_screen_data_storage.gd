@@ -3,16 +3,10 @@ class_name LoadingScreenDataStorage
 extends Resource
 
 
-signal data_updated()
+static var loading_screen_datas:Array[Dictionary] = []
+static var is_loaded:bool = false
 
-@export var loading_screen_datas:Array[Dictionary] = []:
-	set(val):
-		loading_screen_datas = val
-
-		data_updated.emit()
-
-
-func add_data(label:String, path:String) -> bool:
+static func add_data(label:String, path:String) -> bool:
 	
 	loading_screen_datas.append(
 		{
@@ -22,10 +16,9 @@ func add_data(label:String, path:String) -> bool:
 	)
 	
 	save_at_settings_path()
-	data_updated.emit()
 	return true
 	
-func edit_data(index:int, data:Dictionary) -> bool:
+static func edit_data(index:int, data:Dictionary) -> bool:
 	if !loading_screen_datas:
 		return false
 	
@@ -35,10 +28,9 @@ func edit_data(index:int, data:Dictionary) -> bool:
 	loading_screen_datas[index] = data
 	
 	save_at_settings_path()
-	data_updated.emit()
 	return true
 	
-func remove_data(index:int) -> bool:
+static func remove_data(index:int) -> bool:
 	if !loading_screen_datas:
 		return false
 	
@@ -48,16 +40,15 @@ func remove_data(index:int) -> bool:
 	loading_screen_datas.remove_at(index)
 	
 	save_at_settings_path()
-	data_updated.emit()
 	return true
 	
-func get_data_list() -> Array[Dictionary]:
+static func get_data_list() -> Array[Dictionary]:
 	if !loading_screen_datas:
 		return []
 	
 	return loading_screen_datas
 	
-func get_data_by_label(label:String) -> Dictionary:
+static func get_data_by_label(label:String) -> Dictionary:
 	if !loading_screen_datas:
 		return {}
 	
@@ -67,7 +58,7 @@ func get_data_by_label(label:String) -> Dictionary:
 	
 	return {}
 	
-func get_data_by_index(index:int) -> Dictionary:
+static func get_data_by_index(index:int) -> Dictionary:
 	if !loading_screen_datas:
 		return {}
 	
@@ -76,7 +67,7 @@ func get_data_by_index(index:int) -> Dictionary:
 	
 	return loading_screen_datas[index]
 
-func get_index_by_label(label:String) -> int:
+static func get_index_by_label(label:String) -> int:
 	if !loading_screen_datas:
 		return -1
 	
@@ -89,7 +80,7 @@ func get_index_by_label(label:String) -> int:
 	
 	return -1
 
-func has_data(label:String) -> bool:
+static func has_data(label:String) -> bool:
 	if !loading_screen_datas:
 		return false
 	
@@ -99,22 +90,48 @@ func has_data(label:String) -> bool:
 	
 	return false
 	
-func save_at_settings_path() -> bool:
-	var storage_path = LevelManagerPlugin.get_loading_screen_storage_path()
+static func save_at_settings_path() -> bool:
+	var datas = []
+	for data in loading_screen_datas:
+		datas.append(data)
+	
+	var dict = {
+		'datas': datas,
+	}
+	
+	var file = FileAccess.open(LevelManagerPlugin.get_loading_screen_storage_path(), FileAccess.WRITE)
+	var dict_string = str(dict)
+	file.store_string(dict_string)
+	file.close()
+	return true
 
-	var err = ResourceSaver.save(self, storage_path)
-	if err != OK:
-		printerr('Failed loading resource at path: %s code:%d ' % [storage_path, err])
+static func load_from_settings_path() -> bool:
+	if is_loaded:
+		return true
+		
+	var path = LevelManagerPlugin.get_loading_screen_storage_path()
+	if !FileAccess.file_exists(path):
 		return false
 		
+	var dict_string = FileAccess.get_file_as_string(LevelManagerPlugin.get_loading_screen_storage_path())
+	if dict_string.is_empty():
+		print('dict is empty')
+		save_at_settings_path()
+	
+	var dict:Dictionary = JSON.parse_string(dict_string)
+	if !dict:
+		print('failed parsing json')
+		return false
+	
+	var datas = dict.get('datas', [])
+	for data in datas:
+		add_data(
+			data.get('label', '[Error]'),
+			data.get('path', '[Error]')
+		)
+	
+	is_loaded = true
 	return true
-	
-static func load_from_settings_path() -> LoadingScreenDataStorage:
-	var storage_path = LevelManagerPlugin.get_loading_screen_storage_path()
 
-	if !ResourceLoader.exists(storage_path):
-		return
-	
-	var new_storage = load(storage_path)
-
-	return new_storage
+static func is_storage_loaded() -> bool:
+	return is_loaded

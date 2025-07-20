@@ -9,8 +9,6 @@ static var current_level:Node
 
 static var loader:LevelLoader
 
-static var loading_screen_storage:LoadingScreenDataStorage
-
 
 static func load_level_in_background():
 	pass
@@ -54,7 +52,6 @@ static func _set_level_container(container:Node):
 	_add_loading_screen_container()
 	
 	LevelDataStorage.load_from_settings_path()
-	loading_screen_storage = LoadingScreenDataStorage.load_from_settings_path()
 
 static func _on_level_loaded(label:String, level:Node):
 	level_container.set_level(level)
@@ -72,7 +69,7 @@ static func _show_loading_screen(data:LevelData):
 	if !loading_screen_container or !level_container:
 		return
 	
-	var loading_screen_path = loading_screen_storage.get_data_by_label(data.loading_screen_name).get('path')
+	var loading_screen_path = LoadingScreenDataStorage.get_data_by_label(data.loading_screen_name).get('path')
 	if !loading_screen_path:
 		return
 	
