@@ -1,4 +1,5 @@
 class_name Levels
+## A static class that can change and unload [Levels]
 
 
 static var loading_screen_container:CanvasLayer
@@ -13,6 +14,8 @@ static var loader:LevelLoader
 static func load_level_in_background():
 	pass
 
+## Unloads the current level and loads the start level set in the Levels tab
+## at [spawn] with [args].
 static func change_to_start_level(spawn:String, args:Dictionary):
 	if !LevelDataStorage.is_storage_loaded():
 		return
@@ -20,11 +23,13 @@ static func change_to_start_level(spawn:String, args:Dictionary):
 	var data = LevelDataStorage.get_start_level()
 	change_to_level(data, spawn, args)
 
+## Unloads any current levels and changes to the provided [level] at [spawn] with [args].
 static func change_to_level(level:LevelData, spawn:String, args:Dictionary):
 	loader.load_from_data(level, spawn)
 	if level.show_loading_screen:
 		_show_loading_screen(level)
 
+## Unloads any current levels and changes to the provided [label] at [spawn] with [args].
 static func change_to_level_name(label:String, spawn:String, args:Dictionary = {}):
 	var data = LevelDataStorage.get_data_by_label(label)
 	if !data:
@@ -32,18 +37,21 @@ static func change_to_level_name(label:String, spawn:String, args:Dictionary = {
 	
 	change_to_level(data, spawn, args)
 
+## Returns a list of [LevelData]s
 static func get_levels() -> Array[LevelData]:
 	if !LevelDataStorage.is_storage_loaded():
 		return []
 	
 	return LevelDataStorage.get_data_list()
 
+## Returns the currently loaded [Level]
 static func get_current_level() -> Node:
 	if !current_level:
 		return
 	
 	return current_level
-	
+
+## Returns the [LevelLoader] Node
 static func get_loader() -> LevelLoader:
 	if !loader:
 		return
