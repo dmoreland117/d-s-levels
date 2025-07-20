@@ -49,6 +49,6 @@ func _on_set_storage_button_pressed() -> void:
 
 func _on_visibility_changed() -> void:
 	if !LoadingScreenDataStorage.is_storage_loaded() and visible:
-		PopupUtils.show_select_loading_screen_storage_path_popup()
-	
+		PopupUtils.show_error_popup('Failed to load Loading Screen Storage\n%s' %LevelManagerPlugin.get_loading_screen_storage_path())
+
 	refresh_loading_screen_list()

@@ -16,12 +16,14 @@ static func show_select_storage_path_popup():
 	popup.title = 'select storage path'
 	popup.add_child( instance)
 	
-	EditorInterface.popup_dialog_centered(popup)
+	EditorInterface.get_base_control().add_child(popup)
+	popup.popup_centered()
 
 static func show_select_loading_screen_storage_path_popup():
 	var instance = LOADING_SCREEN_STORAGE_PATH_SET_POPUP.instantiate()
 	var popup = PopupPanel.new()
 	popup.borderless = false
+	popup.exclusive = true
 	popup.size = Vector2(400, 200)
 	popup.title = 'select Loading Screen Storage path'
 	popup.add_child( instance)

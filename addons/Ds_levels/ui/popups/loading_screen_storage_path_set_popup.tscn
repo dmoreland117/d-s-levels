@@ -13,6 +13,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
 start_path = "res://resources/level_storage.json"
+file_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -29,5 +30,6 @@ layout_mode = 2
 text = "Acccept"
 
 [connection signal="path_changed" from="file_picker" to="." method="_on_file_picker_path_changed"]
+[connection signal="path_selected" from="file_picker" to="." method="_on_file_picker_path_selected"]
 [connection signal="pressed" from="HBoxContainer/cancel_button" to="." method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/accept_button" to="." method="_on_accept_button_pressed"]

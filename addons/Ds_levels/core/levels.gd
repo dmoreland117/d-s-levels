@@ -25,6 +25,13 @@ static func change_to_level(level:LevelData, spawn:String, args:Dictionary):
 	if level.show_loading_screen:
 		_show_loading_screen(level)
 
+static func change_to_level_name(label:String, spawn:String, args:Dictionary = {}):
+	var data = LevelDataStorage.get_data_by_label(label)
+	if !data:
+		return
+	
+	change_to_level(data, spawn, args)
+
 static func get_levels() -> Array[LevelData]:
 	if !LevelDataStorage.is_storage_loaded():
 		return []
@@ -52,6 +59,7 @@ static func _set_level_container(container:Node):
 	_add_loading_screen_container()
 	
 	LevelDataStorage.load_from_settings_path()
+	LoadingScreenDataStorage.load_from_settings_path()
 
 static func _on_level_loaded(label:String, level:Node):
 	level_container.set_level(level)
