@@ -3,27 +3,22 @@ class_name LevelDataStorage
 extends Resource
 
 
-signal data_updated()
+static var level_datas:Array[LevelData] = []
 
-@export var level_datas:Array[LevelData] = [] :
-	set(val):
-		level_datas = val
+static var player_scene_path:String = ''
+static var start_level_index:int = 0
+static var is_loaded:bool = false
 
-		data_updated.emit()
 
-@export_file('*.tscn') var player_scene_path:String = ''
-@export var start_level_index:int = 0
-
-func add_data(data:LevelData) -> bool:
+static func add_data(data:LevelData) -> bool:
 	if !level_datas:
 		level_datas = []
 	
 	level_datas.append(data)
 	save_at_settings_path()
-	data_updated.emit()
 	return true
 	
-func edit_data(index:int, data:LevelData) -> bool:
+static func edit_data(index:int, data:LevelData) -> bool:
 	if !level_datas:
 		return false
 	
@@ -33,11 +28,9 @@ func edit_data(index:int, data:LevelData) -> bool:
 	level_datas[index] = data
 	save_at_settings_path()
 	
-	data_updated.emit()
-	
 	return true
 
-func remove_data(index:int) -> bool:
+static func remove_data(index:int) -> bool:
 	if !level_datas:
 		return false
 	
@@ -47,31 +40,29 @@ func remove_data(index:int) -> bool:
 	level_datas.remove_at(index)
 	save_at_settings_path()
 
-	data_updated.emit()
 	return true
 
-func set_start_level(index:int):
+static func set_start_level(index:int):
 	start_level_index = index
-	data_updated.emit()
 	save_at_settings_path()
 
-func get_start_level() -> LevelData:
+static func get_start_level() -> LevelData:
 	return get_data_by_index(start_level_index)
 
-func get_data_list() -> Array[LevelData]:
+static func get_data_list() -> Array[LevelData]:
 	if !level_datas:
 		return []
 		
 	return level_datas
 
-func get_data_by_label(label:String) -> LevelData:
+static func get_data_by_label(label:String) -> LevelData:
 	for data in level_datas:
 		if data.label == label:
 			return data
 	
 	return
 
-func get_data_by_index(index:int) -> LevelData:
+static func get_data_by_index(index:int) -> LevelData:
 	if !level_datas:
 		return
 	
@@ -80,7 +71,7 @@ func get_data_by_index(index:int) -> LevelData:
 	
 	return level_datas[index]
 	
-func has_data(label:String) -> bool:
+static func has_data(label:String) -> bool:
 	if !level_datas:
 		return false
 	
@@ -90,16 +81,16 @@ func has_data(label:String) -> bool:
 	
 	return false
 
-func get_player_scene_path() -> String:
+static func get_player_scene_path() -> String:
 	if !player_scene_path:
 		return ''
 	
 	return player_scene_path
 
-func set_player_scene_path(path:String):
+static func set_player_scene_path(path:String):
 	player_scene_path = path
 
-func is_start_level(data:LevelData):
+static func is_start_level(data:LevelData):
 	var start_data = get_data_by_index(start_level_index)
 	if !start_data:
 		return false
@@ -107,22 +98,50 @@ func is_start_level(data:LevelData):
 	if start_data.label == data.label:
 		return true
 
-func save_at_settings_path() -> bool:
-	var storage_path = LevelManagerPlugin.get_levels_storage_path()
-
-	var err = ResourceSaver.save(self, storage_path)
-	if err != OK:
-		printerr('Failed loading resource at path: %s code:%d ' % [storage_path, err])
-		return false
+static func save_at_settings_path() -> bool:
+	var datas = []
+	for data in level_datas:
+		datas.append(data.to_dict())
 	
+	var dict = {
+		'datas': datas,
+		'player_path': player_scene_path,
+		'start_index': start_level_index
+	}
+	
+	var file = FileAccess.open(LevelManagerPlugin.get_levels_storage_path(), FileAccess.WRITE)
+	var dict_string = str(dict)
+	file.store_string(dict_string)
+	file.close()
 	return true
 
-static func load_from_settings_path() -> LevelDataStorage:
-	var storage_path = LevelManagerPlugin.get_levels_storage_path()
-
-	if !ResourceLoader.exists(storage_path):
-		return
+static func load_from_settings_path() -> bool:
+	if is_loaded:
+		return true
+		
+	var path = LevelManagerPlugin.get_levels_storage_path()
+	if !FileAccess.file_exists(path):
+		return false
+			
+	var dict_string = FileAccess.get_file_as_string(LevelManagerPlugin.get_levels_storage_path())
+	if dict_string.is_empty():
+		save_at_settings_path()
 	
-	var new_storage = load(storage_path)
+	var dict:Dictionary = JSON.parse_string(dict_string)
+	if !dict:
+		print('failed parsing json')
+		return false
+	
+	
+	player_scene_path = dict.get('player_path')
+	start_level_index = dict.get('start_index')
+	
+	var datas = dict.get('datas', [])
+	for data in datas:
+		add_data(LevelData.from_dict(data))
+	
+	is_loaded = true
+	return true
 
-	return new_storage
+static func is_storage_loaded() -> bool:
+	return is_loaded

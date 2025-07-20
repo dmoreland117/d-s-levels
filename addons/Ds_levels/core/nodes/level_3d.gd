@@ -10,7 +10,6 @@ signal level_start(args:LevelChangeData)
 @export_file('*.tscn') var player_scene_path_override:String
 
 var level_change_data:LevelChangeData
-var storage:LevelDataStorage
 
 var current_spawn_point_node:SpawnPoint3D
 var world_environment:WorldEnvironment
@@ -95,9 +94,8 @@ func _set_current_spawn_point() -> bool:
 	return true
 
 func _set_up_player() -> bool:
-	storage = LevelDataStorage.load_from_settings_path()
-	if !storage:
-		printerr('storage is null')
+	if !LevelDataStorage.is_storage_loaded():
+		printerr('storage is not loaded')
 		return false
 	
 	var player_path
@@ -105,7 +103,7 @@ func _set_up_player() -> bool:
 	if player_scene_path_override:
 		player_path = player_scene_path_override
 	else:
-		player_path = storage.get_player_scene_path()
+		player_path = LevelDataStorage.get_player_scene_path()
 	
 	if !player_path or player_path.is_empty():
 		printerr('player_path is null')

@@ -21,3 +21,10 @@ func _on_tab_bar_tab_changed(tab: int) -> void:
 		LOADING_SCREEN_EDIT_INDEX:
 			loading_screen_edit.show()
 			level_edit.hide()
+
+
+
+func _on_visibility_changed() -> void:
+	LevelDataStorage.load_from_settings_path()
+	if !LevelDataStorage.is_storage_loaded() and visible:
+		PopupUtils.show_select_storage_path_popup()

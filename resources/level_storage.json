@@ -1,0 +1,1 @@
+{ "datas": [{ "label": "lvl1", "description": "level 1", "level_path": "res://lvl1.tscn", "loading_screen_background_path": "", "loading_screen_name": "default", "show_loading_screen": true }], "player_path": "", "start_index": 0 }
