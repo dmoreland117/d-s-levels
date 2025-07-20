@@ -10,8 +10,8 @@ func _ready() -> void:
 	Levels.change_to_start_level('start', {})
 
 func set_level(level:Level2D) -> bool:
-	if get_child_count() >= 2:
-		get_child(1).queue_free()
+	if get_child_count() >= 3:
+		get_child(2).queue_free()
 	
 	if !level:
 		return false
