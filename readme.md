@@ -1,5 +1,5 @@
 
-# D's Level Manager (Alpha 1.0)
+# D's Level Manager (Alpha 2.0)
 ![Level Manager UI](screenshots/level_manager_screen.png)
 
 A Level Manager built for the Godot Engine using GDScript. If you would like to contribute let me know at dmoreland117@gmail.com
