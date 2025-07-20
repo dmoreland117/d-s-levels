@@ -121,9 +121,7 @@ static func load_from_settings_path() -> bool:
 		
 	var path = LevelManagerPlugin.get_levels_storage_path()
 	if !FileAccess.file_exists(path):
-		if !save_at_settings_path():
-			printerr('Level_data_storage Failed to create file')
-			return false
+		return false
 			
 	var dict_string = FileAccess.get_file_as_string(LevelManagerPlugin.get_levels_storage_path())
 	if dict_string.is_empty():

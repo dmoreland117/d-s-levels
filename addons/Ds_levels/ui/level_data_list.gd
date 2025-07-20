@@ -13,6 +13,7 @@ signal edit_pressed(index:int)
 func _ready() -> void:
 	if !LevelDataStorage.load_from_settings_path():
 		printerr('Level_manager_ui Failed to load level storage')
+		PopupUtils.show_select_storage_path_popup()
 		return
 	
 	_add_icons()

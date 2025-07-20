@@ -21,4 +21,5 @@ func _on_cancel_button_pressed() -> void:
 
 func _on_accept_button_pressed() -> void:
 	LevelManagerPlugin.set_levels_storage_path(current_path)
+	LevelDataStorage.save_at_settings_path()
 	get_parent().queue_free()
