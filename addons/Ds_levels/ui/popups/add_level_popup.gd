@@ -31,3 +31,9 @@ func _on_accept_button_pressed() -> void:
 
 func _on_cancel_button_pressed() -> void:
 	get_parent().queue_free()
+
+func _on_level_path_picker_path_selected(path: String) -> void:
+	get_parent().show()
+
+func _on_level_path_picker_cancled() -> void:
+	get_parent().show()

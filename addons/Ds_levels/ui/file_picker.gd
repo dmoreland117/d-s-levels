@@ -5,6 +5,7 @@ extends HBoxContainer
 
 signal path_selected(path:String)
 signal path_changed(path:String)
+signal cancled()
 
 @onready var path_input: LineEdit = %path_input
 @onready var file_button: Button = %file_button
@@ -24,10 +25,7 @@ signal path_changed(path:String)
 		current_path = val
 @export_enum('Open File:0', 'Open Dir:2', 'Save File:4') var file_mode:int
 
-var current_path:String:
-	set(val):
-		current_path = val
-		_update_line_edit_text()
+var current_path:String
 
 
 func _ready() -> void:
@@ -38,6 +36,7 @@ func _ready() -> void:
 	file_dialog.current_path = current_path
 	file_dialog.file_mode = file_mode
 	path_input.placeholder_text = placeholder_text
+	path_input.text = current_path
 
 func _check_nodes() -> bool:
 	if !file_dialog:
@@ -59,7 +58,8 @@ func _on_path_input_text_changed(new_text: String) -> void:
 	path_changed.emit(current_path)
 	
 func _on_path_input_text_submitted(new_text: String) -> void:
-	path_selected.emit(current_path)
+	#path_selected.emit(current_path)
+	pass
 
 func _on_file_dialog_dir_selected(dir: String) -> void:
 	current_path = dir
@@ -74,3 +74,11 @@ func _on_file_dialog_file_selected(path: String) -> void:
 	
 func _on_file_button_pressed() -> void:
 	file_dialog.show()
+
+
+func _on_file_dialog_canceled() -> void:
+	cancled.emit()
+
+func _on_path_input_editing_toggled(toggled_on: bool) -> void:
+	if !toggled_on:
+		path_selected.emit(current_path)

@@ -37,8 +37,10 @@ title = "Open a File"
 ok_button_text = "Open"
 file_mode = 0
 
+[connection signal="editing_toggled" from="path_input" to="." method="_on_path_input_editing_toggled"]
 [connection signal="text_changed" from="path_input" to="." method="_on_path_input_text_changed"]
 [connection signal="text_submitted" from="path_input" to="." method="_on_path_input_text_submitted"]
 [connection signal="pressed" from="file_button" to="." method="_on_file_button_pressed"]
+[connection signal="canceled" from="FileDialog" to="." method="_on_file_dialog_canceled"]
 [connection signal="dir_selected" from="FileDialog" to="." method="_on_file_dialog_dir_selected"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

@@ -36,5 +36,7 @@ layout_mode = 2
 text = "Accept
 "
 
+[connection signal="cancled" from="level_path_picker" to="." method="_on_level_path_picker_cancled"]
+[connection signal="path_selected" from="level_path_picker" to="." method="_on_level_path_picker_path_selected"]
 [connection signal="pressed" from="HBoxContainer/cancel_button" to="." method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/accept_button" to="." method="_on_accept_button_pressed"]
