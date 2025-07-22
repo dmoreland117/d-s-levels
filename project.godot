@@ -13,6 +13,7 @@ config_version=5
 config/name="ds levels"
 run/main_scene="uid://b3gnp1whn38pv"
 config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="uid://dvc1rqp2fobsn"
 
 [d's_levels]
 
