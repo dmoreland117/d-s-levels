@@ -113,4 +113,6 @@ func _set_up_player() -> bool:
 	if !player_instance:
 			return false
 	
+	add_child(player_instance)
+	
 	return true

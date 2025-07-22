@@ -13,14 +13,15 @@ signal edit_pressed(index:int)
 func _ready() -> void:
 	if !LevelDataStorage.load_from_settings_path():
 		printerr('Level_manager_ui Failed to load level storage')
-		PopupUtils.show_select_storage_path_popup()
 		return
 	
-	_add_icons()
-	
 	_populate_levels_list()
+	_add_icons()
 
 func _add_icons():
+	if !Engine.is_editor_hint():
+		return
+	
 	var editor_theme = EditorInterface.get_editor_theme()
 	add_level_button.icon = editor_theme.get_icon('Add', 'EditorIcons')
 	refresh_levels_button.icon = editor_theme.get_icon('Reload', 'EditorIcons')
@@ -47,10 +48,12 @@ func _on_add_level_button_pressed() -> void:
 		PopupUtils.show_error_popup('Please select Level Storage Path.')
 		return
 	
-	PopupUtils.show_add_level_popup()
+	await PopupUtils.show_add_level_popup().tree_exited
+	_populate_levels_list()
 
 func _on_select_storage_path_button_pressed() -> void:
-	PopupUtils.show_select_storage_path_popup()
+	await PopupUtils.show_select_storage_path_popup().tree_exited
+	_populate_levels_list()
 
 func _on_visibility_changed() -> void:
 	_populate_levels_list()
@@ -60,7 +63,8 @@ func _on_levels_table_remove_pressed(index: int) -> void:
 		PopupUtils.show_error_popup('Error removing Level. Cant load Level Storage at path %s' % LevelManagerPlugin.get_levels_storage_path())
 		return
 	
-	PopupUtils.show_remove_level_popup(index)
+	await PopupUtils.show_remove_level_popup(index).tree_exited
+	_populate_levels_list()
 
 func _on_refresh_levels_button_pressed() -> void:
 	if !LevelDataStorage.is_storage_loaded():

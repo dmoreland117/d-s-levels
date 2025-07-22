@@ -51,6 +51,10 @@ layout_mode = 2
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+text = "Add Loading Screen  "
+
 [node name="new_loading_screen_input" type="LineEdit" parent="HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2

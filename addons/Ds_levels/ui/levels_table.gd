@@ -33,6 +33,14 @@ func add_row(label:String, description:String, path:String):
 	)
 	
 	item_list.add_child(instance)
+	
+	if item_list.get_child_count() == 0:
+		scroll_container.hide()
+		no_items.show()
+		return
+	
+	scroll_container.show()
+	no_items.hide()
 
 
 func _ready() -> void:
@@ -59,14 +67,10 @@ func clear_table():
 	no_items.hide()
 
 func _add_icons():
+	if !Engine.is_editor_hint():
+		return 
+		
 	var t = EditorInterface.get_editor_theme()
 	var tex = t.get_icon('Add', "EditorIcons")
 	no_items_texture.texture = tex
 	
-	if item_list.get_child_count() == 0:
-		scroll_container.hide()
-		no_items.show()
-		return
-	
-	scroll_container.show()
-	no_items.hide()

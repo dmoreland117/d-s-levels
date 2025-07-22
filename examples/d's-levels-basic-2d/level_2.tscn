@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bydbggq6jsh5o"]
+
+[ext_resource type="Script" uid="uid://b3utw8oibgoyn" path="res://addons/Ds_levels/core/nodes/level_2d.gd" id="1_nmjpi"]
+[ext_resource type="Script" uid="uid://cprpqxvbxf7wc" path="res://addons/Ds_levels/core/nodes/spawn_point_2d.gd" id="2_xdadj"]
+[ext_resource type="Texture2D" uid="uid://indkww44wa0p" path="res://icon.svg" id="3_xdadj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y8me"]
+size = Vector2(696, 62)
+
+[node name="level_2" type="Node2D"]
+script = ExtResource("1_nmjpi")
+player_scene_path_override = "uid://6p381m3n06gr"
+metadata/_custom_type_script = "uid://b3utw8oibgoyn"
+
+[node name="spawn" type="Node2D" parent="."]
+position = Vector2(201, 153)
+script = ExtResource("2_xdadj")
+metadata/_custom_type_script = "uid://cprpqxvbxf7wc"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 296.0
+offset_top = 160.0
+offset_right = 336.0
+offset_bottom = 183.0
+text = "Level 2"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(176, 260)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(283.5, 32)
+scale = Vector2(5.42969, 0.5)
+texture = ExtResource("3_xdadj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(284, 33)
+shape = SubResource("RectangleShape2D_1y8me")

@@ -56,7 +56,14 @@ static func create_player(path:String, spawn) -> Node:
 	if !player_scene:
 		return
 	
-	return player_scene.instantiate()
+	var player_instance = player_scene.instantiate()
+	if !player_instance:
+		return
+	
+	player_instance.position = spawn.position
+	player_instance.rotation = spawn.rotation
+	
+	return player_instance
 
 static func has_world_environment(level) -> bool:
 	for child in level.get_children():

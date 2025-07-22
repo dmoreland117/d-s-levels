@@ -22,6 +22,9 @@ func _ready() -> void:
 	level_path_label.text = path
 	level_description_label.text = description
 	
+	if !Engine.is_editor_hint():
+		return
+	
 	var theme = EditorInterface.get_editor_theme()
 	edit_button.icon = theme.get_icon('Edit', 'EditorIcons')
 	open_button.icon = theme.get_icon('PackedScene', 'EditorIcons')

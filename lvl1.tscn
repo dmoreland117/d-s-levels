@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4yujdtwxpq68"]
+[gd_scene load_steps=5 format=3 uid="uid://kxk65a3fq5ur"]
 
 [ext_resource type="Script" uid="uid://cxelpq8jvqlir" path="res://addons/Ds_levels/core/nodes/level_3d.gd" id="1_vhjmk"]
 [ext_resource type="Script" uid="uid://cppk6uqm33g3w" path="res://addons/Ds_levels/core/nodes/spawn_point_3d.gd" id="2_hppyo"]

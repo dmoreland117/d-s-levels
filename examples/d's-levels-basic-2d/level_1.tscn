@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5jcvmehnypdy"]
+
+[ext_resource type="Script" uid="uid://bce35i1o1kf03" path="res://level_1.gd" id="1_hbghi"]
+[ext_resource type="Script" uid="uid://cprpqxvbxf7wc" path="res://addons/Ds_levels/core/nodes/spawn_point_2d.gd" id="2_hn12h"]
+
+[node name="level_1" type="Node2D"]
+script = ExtResource("1_hbghi")
+metadata/_custom_type_script = "uid://b3utw8oibgoyn"
+
+[node name="spawn_1" type="Node2D" parent="."]
+position = Vector2(403, 219)
+script = ExtResource("2_hn12h")
+metadata/_custom_type_script = "uid://cprpqxvbxf7wc"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 289.0
+offset_top = 152.0
+offset_right = 329.0
+offset_bottom = 175.0
+text = "Level 1
+press[Enter] to change to level 2"

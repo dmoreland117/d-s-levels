@@ -2,6 +2,9 @@
 extends VBoxContainer
 
 
+
+signal saved()
+
 @onready var level_label_input: LineEdit = %level_label_input
 @onready var level_description_input: LineEdit = %level_description_input
 @onready var level_path_picker: LineFilePicker = %level_path_picker
@@ -66,6 +69,8 @@ func _on_save_button_pressed() -> void:
 		loading_screen_label_dropdown.selected
 	)
 	LevelDataStorage.edit_data(index, data)
+	
+	saved.emit()
 
 func _on_reset_button_pressed() -> void:
 	pass # Replace with function body.
