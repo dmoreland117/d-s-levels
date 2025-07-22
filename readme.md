@@ -1,5 +1,5 @@
 
-# D's Level Manager (Alpha 2.0)
+# D's Level Manager (Alpha 3.0)
 ![Level Manager UI](icon.png)
 
 ![Level Manager UI](screenshots/level_manager_screen.png)
