@@ -2,7 +2,7 @@
 # D's Level Manager (Alpha 2.0)
 ![Level Manager UI](screenshots/level_manager_screen.png)
 
-A Level Manager built for the Godot Engine using GDScript. If you would like to contribute let me know at dmoreland117@gmail.com
+A WIP Level Manager built for the Godot Engine using GDScript. This Plugin is not ready for production Projects. If you would like to contribute let me know at dmoreland117@gmail.com
 
 Right now you need to press the refresh button after every edit to see changes.
 
@@ -25,10 +25,8 @@ git clone https://github.com/dmoreland117/d-s-levels.git
 7. in your game scene add a LevelContainer2D or 3D
 8. Run the game and the first level in the list should load or to change to a specific level call:
 ```gdscript
-Levels.change_to_level_name('Name', 'spawn_label)
+Levels.change_to_level_name('Name', 'spawn_label')
 ```
 
 ## TODO
-* Clean up code a bit
-* Write docs
-* Post a demo Video
+To see a list of todos visit [the Isues Page](https://github.com/dmoreland117/d-s-levels/issues)
