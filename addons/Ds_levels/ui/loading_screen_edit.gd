@@ -3,6 +3,8 @@ extends VBoxContainer
 
 
 @onready var loading_screens_table: VBoxContainer = %loading_screens_table
+@onready var new_loading_screen_input: LineEdit = %new_loading_screen_input
+@onready var new_loading_screen_path_picker: LineFilePicker = %new_loading_screen_path_picker
 
 
 func _ready() -> void:
@@ -41,7 +43,25 @@ func _on_add_screen_butto_pressed() -> void:
 	if !LoadingScreenDataStorage.is_storage_loaded():
 		return
 	
-	LoadingScreenDataStorage.add_data('new_loading_screen', 'res://')
+	var new_screen_label = new_loading_screen_input.text
+	var new_screen_path = new_loading_screen_path_picker.current_path
+	
+	if new_screen_label.is_empty():
+		PopupUtils.show_error_popup('Please provide a Loading Screen Label.')
+		return
+	
+	if new_screen_path.is_empty():
+		PopupUtils.show_error_popup('Please provide a Loading Screen Path.')
+		return
+	
+	if !ResourceLoader.exists(new_screen_path):
+		PopupUtils.show_error_popup('%s does not exist.' % new_screen_path)
+		return
+	
+	LoadingScreenDataStorage.add_data(new_screen_label, new_screen_path)
+	
+	new_loading_screen_input.text = ''
+	new_loading_screen_path_picker.current_path = ''
 	refresh_loading_screen_list()
 
 func _on_set_storage_button_pressed() -> void:
