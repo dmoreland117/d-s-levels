@@ -7,6 +7,7 @@ extends VBoxContainer
 @onready var new_loading_screen_path_picker: LineFilePicker = %new_loading_screen_path_picker
 @onready var refresh_screens_button: Button = %refresh_screens_button
 @onready var set_storage_button: Button = %set_storage_button
+@onready var add_screen_butto: Button = %add_screen_butto
 
 
 func _ready() -> void:
@@ -20,6 +21,7 @@ func _add_icons():
 	var editor_theme = EditorInterface.get_editor_theme()
 	refresh_screens_button.icon = editor_theme.get_icon('Reload', 'EditorIcons')
 	set_storage_button.icon = editor_theme.get_icon('ResourcePreloader', 'EditorIcons')
+	add_screen_butto.icon = editor_theme.get_icon('Add', 'EditorIcons')
 
 func _on_loading_screens_table_row_edited(index: int, data: Dictionary) -> void:
 	if !LoadingScreenDataStorage.is_storage_loaded():

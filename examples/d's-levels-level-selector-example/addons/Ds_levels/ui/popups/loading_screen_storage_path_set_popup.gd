@@ -11,6 +11,7 @@ func _ready() -> void:
 func _on_accept_button_pressed() -> void:
 	LevelManagerPlugin.set_loading_screen_storage_path(file_picker.current_path)
 	LoadingScreenDataStorage.save_at_settings_path()
+	get_parent().queue_free()
 
 func _on_cancel_button_pressed() -> void:
 	get_parent().queue_free()

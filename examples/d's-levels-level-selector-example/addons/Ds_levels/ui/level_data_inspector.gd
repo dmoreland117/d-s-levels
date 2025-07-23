@@ -40,9 +40,10 @@ func set_index(idx:int):
 	
 	level_label_input.text = data.label
 	level_description_input.text = data.description
-	level_path_picker.current_path = data.level_path
+	level_path_picker.start_path = data.level_path
 	level_hidden_input.button_pressed = data.hidden
 	show_level_loading_screen_input.button_pressed = data.show_loading_screen
+	loading_screen_background_picker.start_path = data.loading_screen_background_path
 	
 	loading_screen_label_dropdown.clear()
 	if LoadingScreenDataStorage.is_storage_loaded():
