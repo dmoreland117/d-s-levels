@@ -13,7 +13,7 @@ signal remove_pressed(index:int)
 @onready var no_items: VBoxContainer = %no_items
 @onready var scroll_container: ScrollContainer = $ScrollContainer
 
-func add_row(label:String, description:String, path:String):
+func add_row(label:String, description:String, path:String) -> Control:
 	var instance = LEVEL_TABEL_ITEM.instantiate()
 	instance.label = label
 	instance.path = path
@@ -41,6 +41,8 @@ func add_row(label:String, description:String, path:String):
 	
 	scroll_container.show()
 	no_items.hide()
+	
+	return instance
 
 
 func _ready() -> void:

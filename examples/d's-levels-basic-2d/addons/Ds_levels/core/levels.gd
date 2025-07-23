@@ -38,11 +38,11 @@ static func change_to_level_name(label:String, spawn:String, args:Dictionary = {
 	change_to_level(data, spawn, args)
 
 ## Returns a list of [LevelData]s
-static func get_levels() -> Array[LevelData]:
+static func get_levels(include_hidden:bool = false) -> Array[LevelData]:
 	if !LevelDataStorage.is_storage_loaded():
 		return []
 	
-	return LevelDataStorage.get_data_list()
+	return LevelDataStorage.get_data_list(include_hidden)
 
 ## Returns the currently loaded [Level]
 static func get_current_level() -> Node:

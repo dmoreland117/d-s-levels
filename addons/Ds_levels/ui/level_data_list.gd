@@ -37,11 +37,12 @@ func _populate_levels_list():
 		return
 	
 	for level in LevelDataStorage.get_data_list(true):
+		var row_control:Control
 		if LevelDataStorage.is_start_level(level):
-			levels_table.add_row(level.label + ' (Start)', level.description, level.level_path)
-			continue
+			row_control = levels_table.add_row(level.label + ' (Start)', level.description, level.level_path)
+		else:
+			row_control = levels_table.add_row(level.label, level.description, level.level_path)
 			
-		var row_control:Control = levels_table.add_row(level.label, level.description, level.level_path)
 		if level.hidden:
 			row_control.modulate = row_control.modulate.darkened(0.4)
 

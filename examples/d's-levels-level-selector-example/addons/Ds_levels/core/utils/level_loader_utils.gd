@@ -66,6 +66,7 @@ func get_load_progress(label:String) -> int:
 	
 	var progress = []
 	ResourceLoader.load_threaded_get_status(loading_levels[label], progress)
+	
 	return progress[0] * 100
 
 func get_loading_levels() -> Dictionary:

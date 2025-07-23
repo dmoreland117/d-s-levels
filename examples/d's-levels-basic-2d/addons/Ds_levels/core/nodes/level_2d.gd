@@ -1,6 +1,7 @@
 @tool
 class_name Level2D
 extends Node2D
+## This [Node] holds the [WorldEnvironment] and your Level.
 
 
 signal level_start(args:LevelChangeData)
@@ -45,6 +46,7 @@ func _ready() -> void:
 		printerr('Faild to create Player')
 		return
 
+## Set the [Environment] for the Level's [WorldEnvironment]
 func set_environment(env:Environment):
 	environment = env
 	
@@ -53,15 +55,18 @@ func set_environment(env:Environment):
 	
 	world_environment.environment = env
 
+## Returns all of the [SpawnPoint2D]s in the Level.
 func get_spawn_points() -> Array:
 	return LevelNodeUtils.get_spawn_points(self)
 
+## Returns the [LevelChangeData] for the Level
 func get_level_change_data() -> LevelChangeData:
 	if !level_change_data:
 		return
 	
 	return level_change_data
 
+## Returns the currently spawned Player.
 func get_player() -> Node:
 	if !player_instance:
 		return

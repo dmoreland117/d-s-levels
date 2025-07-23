@@ -49,11 +49,18 @@ static func set_start_level(index:int):
 static func get_start_level() -> LevelData:
 	return get_data_by_index(start_level_index)
 
-static func get_data_list() -> Array[LevelData]:
+static func get_data_list(include_hidden:bool = false) -> Array[LevelData]:
 	if !level_datas:
 		return []
+	
+	var ret:Array[LevelData] = []
+	for data in level_datas:
+		if !include_hidden and data.hidden:
+			continue
 		
-	return level_datas
+		ret.append(data)
+	
+	return ret
 
 static func get_data_by_label(label:String) -> LevelData:
 	for data in level_datas:
