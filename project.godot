@@ -11,9 +11,8 @@ config_version=5
 [application]
 
 config/name="ds levels"
-run/main_scene="uid://b3gnp1whn38pv"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://dvc1rqp2fobsn"
 
 [d's_levels]
 
@@ -21,8 +20,8 @@ directories/level_storage_path="res://level_storage.tres"
 
 [ds_levels]
 
-directories/level_storage_path="res://resources/level_storage.json"
-directories/loading_screen_storage_path="res://resources/loading_screen_storage.json"
+directories/level_storage_path="res://level_data/level_storage.json"
+directories/loading_screen_storage_path="res://level_data/loading_screen_storage.json"
 
 [editor_plugins]
 

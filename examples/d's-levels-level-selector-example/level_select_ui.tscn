@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnqbb3hwf5acs"]
+
+[ext_resource type="Script" uid="uid://bb4q7n3232ylu" path="res://level_select_ui.gd" id="1_gq3pj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ji5p8"]
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_gq3pj"]
+font_size = 12
+
+[node name="level_select_ui" type="PanelContainer"]
+custom_minimum_size = Vector2(400, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gq3pj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Levels"
+label_settings = SubResource("LabelSettings_ji5p8")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="levels_list" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Press [ESC] to return to this Screen."
+label_settings = SubResource("LabelSettings_gq3pj")
+horizontal_alignment = 1
