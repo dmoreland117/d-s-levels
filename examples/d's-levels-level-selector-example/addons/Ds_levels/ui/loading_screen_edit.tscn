@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_picker.tscn" id="3_fd47w"]
 
 [node name="loading_screen_edit" type="VBoxContainer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
