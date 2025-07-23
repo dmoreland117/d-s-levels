@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dppj43qabgs1p"]
+[gd_scene load_steps=4 format=3 uid="uid://dppj43qabgs1p"]
 
 [ext_resource type="Script" uid="uid://b3utw8oibgoyn" path="res://addons/Ds_levels/core/nodes/level_2d.gd" id="1_g5p1p"]
 [ext_resource type="Texture2D" uid="uid://bgwglw8cjx64a" path="res://large_image.jpg" id="2_mkdnr"]
 [ext_resource type="Texture2D" uid="uid://rdhq75bifrd0" path="res://large_image2.jpg" id="3_6rdud"]
-[ext_resource type="Texture2D" uid="uid://crw1orcep38e5" path="res://large_image6.jpg" id="4_t684k"]
 
 [node name="loading_screen_demo" type="Node2D"]
 script = ExtResource("1_g5p1p")
@@ -18,8 +17,3 @@ texture = ExtResource("2_mkdnr")
 position = Vector2(605, 260)
 scale = Vector2(0.0450379, 0.0641038)
 texture = ExtResource("3_6rdud")
-
-[node name="LargeImage6" type="Sprite2D" parent="."]
-position = Vector2(749, 386)
-scale = Vector2(0.0464279, 0.0464279)
-texture = ExtResource("4_t684k")
