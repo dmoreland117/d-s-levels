@@ -26,8 +26,15 @@ static func change_to_start_level(spawn:String, args:Dictionary):
 ## Unloads any current levels and changes to the provided [level] at [spawn] with [args].
 static func change_to_level(level:LevelData, spawn:String, args:Dictionary):
 	loader.load_from_data(level, spawn)
+	
+	
 	if level.show_loading_screen:
 		_show_loading_screen(level)
+	
+	if !current_level:
+		return
+	
+	current_level.queue_free()
 
 ## Unloads any current levels and changes to the provided [label] at [spawn] with [args].
 static func change_to_level_name(label:String, spawn:String, args:Dictionary = {}):

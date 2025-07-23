@@ -62,3 +62,5 @@ text = "Level path"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 10
+
+[connection signal="progress_updated" from="." to="." method="_on_progress_updated"]
