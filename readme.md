@@ -1,6 +1,8 @@
 
+![Level Manager UI](icon.png)
 # D's Level Manager (Alpha 4.0)
 
+Level Manager 
 A WIP Level Manager built for the Godot Engine using GDScript. This Plugin is not ready for production Projects. If you would like to contribute let me know at dmoreland117@gmail.com
 
 ![Level Manager UI](screenshots/level_manager_screen.png)
