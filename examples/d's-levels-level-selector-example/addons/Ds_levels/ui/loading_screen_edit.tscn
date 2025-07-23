@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_picker.tscn" id="3_fd47w"]
 
 [node name="loading_screen_edit" type="VBoxContainer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -22,11 +21,13 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Refresh
 "
+flat = true
 
 [node name="set_storage_button" type="Button" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Select Storage Path"
+flat = true
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
