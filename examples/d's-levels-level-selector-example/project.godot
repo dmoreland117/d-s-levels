@@ -1,0 +1,25 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="d's levels level selector example"
+run/main_scene="uid://c2pkrsxgr0bjo"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://icon.svg"
+
+[ds_levels]
+
+directories/level_storage_path="res://levels.json"
+directories/loading_screen_storage_path="res://loading_screens.json"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Ds_levels/plugin.cfg")

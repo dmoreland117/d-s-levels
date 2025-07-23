@@ -1,0 +1,2 @@
+class_name SpawnPoint3D
+extends Node3D
