@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl6ssqdjq4t16"]
+
+[ext_resource type="Script" uid="uid://b0esaka7qg1j0" path="res://addons/Ds_levels/ui/level_edit.gd" id="1_rydob"]
+[ext_resource type="PackedScene" uid="uid://b55qa16iq6a8v" path="res://addons/Ds_levels/ui/level_data_list.tscn" id="2_4c1tu"]
+[ext_resource type="PackedScene" uid="uid://owscnbdnmsbp" path="res://addons/Ds_levels/ui/level_data_inspector.tscn" id="3_pykv7"]
+
+[node name="level_edit" type="HSplitContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_rydob")
+
+[node name="level_data_list" parent="." instance=ExtResource("2_4c1tu")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="level_data_inspector" parent="." instance=ExtResource("3_pykv7")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="edit_pressed" from="level_data_list" to="." method="_on_level_data_list_edit_pressed"]
+[connection signal="saved" from="level_data_inspector" to="." method="_on_level_data_inspector_saved"]

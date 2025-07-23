@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2pkrsxgr0bjo"]
+
+[ext_resource type="Script" uid="uid://bsac1rr8fessb" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://dy6ft4p6d3hkm" path="res://addons/Ds_levels/core/nodes/level_container_2d.gd" id="1_ig7tw"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="LevelContainer2D" type="Node2D" parent="."]
+script = ExtResource("1_ig7tw")
+metadata/_custom_type_script = "uid://dy6ft4p6d3hkm"
