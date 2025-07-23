@@ -122,6 +122,24 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 
+[node name="HBoxContainer7" type="HBoxContainer" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer7"]
+self_modulate = Color(0.791999, 0.791999, 0.791999, 1)
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hidden"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="level_hidden_input" type="CheckBox" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer7"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+
 [node name="HBoxContainer4" type="HBoxContainer" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 

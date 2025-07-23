@@ -12,6 +12,7 @@ signal saved()
 @onready var margin_container: MarginContainer = %MarginContainer
 @onready var loading_screen_background_picker: HBoxContainer = %loading_screen_background_picker
 @onready var loading_screen_label_dropdown: OptionButton = %loading_screen_label_dropdown
+@onready var level_hidden_input: CheckBox = %level_hidden_input
 
 var index:int = -1
 var data:LevelData
@@ -40,6 +41,7 @@ func set_index(idx:int):
 	level_label_input.text = data.label
 	level_description_input.text = data.description
 	level_path_picker.current_path = data.level_path
+	level_hidden_input.button_pressed = data.hidden
 	show_level_loading_screen_input.button_pressed = data.show_loading_screen
 	
 	loading_screen_label_dropdown.clear()
@@ -63,6 +65,7 @@ func _on_save_button_pressed() -> void:
 	data.label = level_label_input.text
 	data.description = level_description_input.text
 	data.level_path = level_path_picker.current_path
+	data.hidden = level_hidden_input.button_pressed
 	data.show_loading_screen = show_level_loading_screen_input.button_pressed
 	data.loading_screen_background_path = loading_screen_background_picker.current_path
 	data.loading_screen_name = loading_screen_label_dropdown.get_item_text(
