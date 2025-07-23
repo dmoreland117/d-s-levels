@@ -1,1 +1,1 @@
-{ "datas": [{ "label": "default", "path": "res://addons/Ds_levels/loading_screens/default_loading_screen.tscn" }] }
+{ "datas": [{ "label": "default", "path": "res://addons/Ds_levels/loading_screens/default_loading_screen.tscn" }, { "label": "default 2", "path": "res://addons/Ds_levels/loading_screens/default_loading_screen_2.tscn" }] }
