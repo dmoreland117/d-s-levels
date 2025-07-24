@@ -2,6 +2,7 @@ class_name LevelData
 extends Resource
 
 
+@export var preview:Texture
 @export var label:String = ''
 @export var description:String = ''
 @export_file('*.tscn') var level_path = ''

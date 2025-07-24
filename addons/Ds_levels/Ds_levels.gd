@@ -10,10 +10,15 @@ const DEFAULT_LOADING_SCREENS_PATH = 'res://loading_screen_storage.tres'
 const LEVEL_MANAGER_UI = preload("res://addons/Ds_levels/ui/level_manager_ui.tscn")
 
 var main_screen_ui:Control
+var current_level:Node
+
 
 func _enter_tree() -> void:
 	_add_resource_paths_to_project_settings()
 	_add_main_screen_ui()
+	
+	scene_changed.connect(_on_scene_changed)
+	scene_saved.connect(_on_scene_saved)
 
 func _exit_tree() -> void:
 	_remove_resource_path_from_project_settings()
@@ -73,7 +78,26 @@ func _remove_resource_path_from_project_settings():
 		return
 	
 	ProjectSettings.set_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING, null)
+
+func _on_scene_changed(scene):
+	print(scene.name)
+	if scene is Level2D:
+		current_level = scene
+		return
 	
+	if scene is Level3D:
+		current_level = scene
+		return
+	
+	current_level = null
+
+func _on_scene_saved(path):
+	if !current_level:
+		return
+	
+	var texture = EditorInterface.get_editor_viewport_3d(0).get_texture().get_image()
+	texture.save_png('res://img.png')
+
 static func set_levels_storage_path(path:String):
 	if !ProjectSettings.has_setting(LEVELS_RESOURCE_PATH_SETTING):
 		return
