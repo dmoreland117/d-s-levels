@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://divmnfobj8kw2"]
-
-[ext_resource type="Script" uid="uid://dy6ft4p6d3hkm" path="res://addons/Ds_levels/core/nodes/level_container_2d.gd" id="1_wtcfe"]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="LevelContainer2D" type="Node2D" parent="."]
-script = ExtResource("1_wtcfe")
-metadata/_custom_type_script = "uid://dy6ft4p6d3hkm"
