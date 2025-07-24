@@ -71,6 +71,8 @@ func _on_set_default_button_pressed() -> void:
 		return
 	
 	LevelDataStorage.set_start_level(index)
+	
+	saved.emit()
 
 func _populate_inspector():
 	if !data:

@@ -80,7 +80,6 @@ func _remove_resource_path_from_project_settings():
 	ProjectSettings.set_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING, null)
 
 func _on_scene_changed(scene):
-	print(scene.name)
 	if scene is Level2D:
 		current_level = scene
 		return

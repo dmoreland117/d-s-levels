@@ -2,6 +2,7 @@ class_name LevelData
 extends Resource
 
 
+#@export var preview:Texture
 @export var label:String = ''
 @export var description:String = ''
 @export_file('*.tscn') var level_path = ''
@@ -9,6 +10,8 @@ extends Resource
 @export var loading_screen_name:String = ''
 @export var show_loading_screen:bool = false
 @export var hidden:bool = false
+@export var transition_in_index:int = -1
+@export var transition_out_index:int = -1
 
 
 func to_dict():
@@ -19,7 +22,9 @@ func to_dict():
 		'hidden': hidden,
 		'loading_screen_background_path': loading_screen_background_path,
 		'loading_screen_name': loading_screen_name,
-		'show_loading_screen' : show_loading_screen
+		'show_loading_screen' : show_loading_screen,
+		'trans_in': transition_in_index,
+		'trans_out': transition_out_index
 	}
 	return ret
 
@@ -33,5 +38,8 @@ static func from_dict(dict:Dictionary) ->LevelData:
 	data.loading_screen_background_path = dict.get('loading_screen_background_path')
 	data.loading_screen_name = dict.get('loading_screen_name')
 	data.show_loading_screen = dict.get('show_loading_screen')
+	data.transition_in_index = dict.get('trans_in')
+	data.transition_out_index = dict.get('trans_out')
+	
 	
 	return data
