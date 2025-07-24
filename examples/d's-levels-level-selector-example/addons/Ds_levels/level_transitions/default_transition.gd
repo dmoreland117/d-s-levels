@@ -5,12 +5,12 @@ extends LevelTransition
 
 
 func _transition_in():
-	show_next_level()
 	animation_player.play("anim")
+	show_next_level()
 
 func _transition_out():
-	show_next_level()
 	animation_player.play_backwards("anim")
+	show_next_level()
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

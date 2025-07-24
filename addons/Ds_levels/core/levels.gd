@@ -28,8 +28,9 @@ static func change_to_start_level(spawn:String, args:Dictionary):
 static func change_to_level(level:LevelData, spawn:String, args:Dictionary):
 	var l = current_level
 	
-	if current_level and current_level.level_change_data.level_data.transition_out_index > -1:
-		await _show_transition(0, 1).transition_done
+	if current_level:
+		if current_level.level_change_data.level_data.transition_out_index > -1:
+			await _show_transition(0, 1).transition_done
 		current_level.queue_free()
 		_hide_transition()
 	
