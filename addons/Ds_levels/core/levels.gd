@@ -83,10 +83,24 @@ static func _set_level_container(container:Node):
 	LoadingScreenDataStorage.load_from_settings_path()
 
 static func _on_level_loaded(label:String, level:Node):
-	level_container.set_level(level)
+	var data = LevelDataStorage.get_data_by_label(label)
+	
 	current_level = level
+	if data.transition_in_index > -1 and loading_screen:
+		await _show_transition(0, 1).transition_done
+		
+		_hide_transition()
+	
 	_hide_loading_screen()
-	await _show_transition(0, 0).transition_done
+	
+	var tramsition:LevelTransition
+	
+	if data.transition_in_index > -1:
+		tramsition = _show_transition(0, 0)
+	
+	level_container.set_level(level)
+	
+	if tramsition: await tramsition.transition_done
 	_hide_transition()
 
 static func _add_loading_screen_container():
