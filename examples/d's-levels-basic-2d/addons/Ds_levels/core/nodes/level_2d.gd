@@ -6,6 +6,7 @@ extends Node2D
 
 signal level_start(args:LevelChangeData)
 
+@export var level_name:String = ''
 @export var environment:Environment: set = set_environment
 ## If set this scene will be loadied instead of the path defined in the levels tab
 @export_file('*.tscn') var player_scene_path_override:String
