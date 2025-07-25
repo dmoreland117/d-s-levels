@@ -31,6 +31,14 @@ static func edit_data(index:int, data:LevelData) -> bool:
 	
 	return true
 
+static func edit_data_by_label(label:String, data:LevelData):
+	var idx:int = 0
+	for level in level_datas:
+		if level.label == label:
+			edit_data(idx, data)
+		
+		idx += 1
+
 static func remove_data(index:int) -> bool:
 	if !level_datas:
 		return false
@@ -81,7 +89,13 @@ static func get_data_by_index(index:int) -> LevelData:
 		return
 	
 	return level_datas[index]
+
+static func get_data_by_path(path:String) -> LevelData:
+	for data in level_datas:
+		if data.level_path == path:
+			return data
 	
+	return
 static func has_data(label:String) -> bool:
 	if !level_datas:
 		return false
