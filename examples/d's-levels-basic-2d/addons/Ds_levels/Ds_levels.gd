@@ -11,18 +11,24 @@ const LEVEL_MANAGER_UI = preload("res://addons/Ds_levels/ui/level_manager_ui.tsc
 
 var main_screen_ui:Control
 var current_level:Node
-
+var current_data:LevelData
+var save_level_preview_button:Button
 
 func _enter_tree() -> void:
 	_add_resource_paths_to_project_settings()
 	_add_main_screen_ui()
 	
 	scene_changed.connect(_on_scene_changed)
-	scene_saved.connect(_on_scene_saved)
+	
+	save_level_preview_button = Button.new()
+	save_level_preview_button.text = 'Save Preview'
+	save_level_preview_button.pressed.connect(_on_save_preview_button_pressed)
+	save_level_preview_button.hide()
 
 func _exit_tree() -> void:
 	_remove_resource_path_from_project_settings()
 	_remove_main_screen_ui()
+	save_level_preview_button.queue_free()
 
 func _get_plugin_name() -> String:
 	return 'Levels'
@@ -79,23 +85,67 @@ func _remove_resource_path_from_project_settings():
 	
 	ProjectSettings.set_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING, null)
 
+func _add_save_button_to_toolbar():
+	if !save_level_preview_button:
+		return
+	
+	add_control_to_container(EditorPlugin.CONTAINER_SPATIAL_EDITOR_MENU, save_level_preview_button)
+	add_control_to_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
+	save_level_preview_button.show()
+
+func _remove_save_button_from_toolbar():
+	if !save_level_preview_button:
+		return
+	
+	remove_control_from_container(EditorPlugin.CONTAINER_SPATIAL_EDITOR_MENU, save_level_preview_button)
+	remove_control_from_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
+
+func _on_save_preview_button_pressed():
+	if !current_level:
+		return
+	
+	if !current_data:
+		return
+	
+	var texture = EditorInterface.get_editor_viewport_3d(0).get_texture().get_image()
+	var save_path = 'res://addons/Ds_levels/preview_cache/' + current_data.label + '_3d_prev_cache.png'
+	texture.save_png(save_path)
+	current_data.preview_path = save_path
+
 func _on_scene_changed(scene):
 	if scene is Level2D:
 		current_level = scene
+		
+		if !scene.level_name:
+			return
+		
+		var data = LevelDataStorage.get_data_by_label(scene.level_name)
+		current_data = data
+		
+		_add_save_button_to_toolbar()
+		
 		return
 	
 	if scene is Level3D:
 		current_level = scene
+		
+		if !scene.level_name:
+			return
+		
+		var data = LevelDataStorage.get_data_by_label(scene.level_name)
+		current_data = data
+		
+		_add_save_button_to_toolbar()
+		
 		return
+	
+	_remove_save_button_from_toolbar()
 	
 	current_level = null
+	current_data = null
 
 func _on_scene_saved(path):
-	if !current_level:
-		return
-	
-	var texture = EditorInterface.get_editor_viewport_3d(0).get_texture().get_image()
-	texture.save_png('res://img.png')
+	pass
 
 static func set_levels_storage_path(path:String):
 	if !ProjectSettings.has_setting(LEVELS_RESOURCE_PATH_SETTING):
