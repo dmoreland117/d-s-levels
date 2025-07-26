@@ -88,13 +88,13 @@ func _add_save_button_to_toolbar():
 	if !save_level_preview_button:
 		return
 	
-	add_control_to_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
+	#add_control_to_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
 
 func _remove_save_button_from_toolbar():
 	if !save_level_preview_button:
 		return
 	
-	remove_control_from_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
+	#remove_control_from_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
 
 func _on_save_preview_button_pressed():
 	if !current_level:
@@ -109,7 +109,8 @@ func _on_save_preview_button_pressed():
 	current_data.preview_path = save_path
 
 func _on_scene_changed(scene):
-	print('scene changed')
+	return
+	
 	if scene is Level2D:
 		current_level = scene
 		

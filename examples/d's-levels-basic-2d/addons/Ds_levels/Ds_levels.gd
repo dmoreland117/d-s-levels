@@ -23,7 +23,6 @@ func _enter_tree() -> void:
 	save_level_preview_button = Button.new()
 	save_level_preview_button.text = 'Save Preview'
 	save_level_preview_button.pressed.connect(_on_save_preview_button_pressed)
-	save_level_preview_button.hide()
 
 func _exit_tree() -> void:
 	_remove_resource_path_from_project_settings()
@@ -89,16 +88,13 @@ func _add_save_button_to_toolbar():
 	if !save_level_preview_button:
 		return
 	
-	add_control_to_container(EditorPlugin.CONTAINER_SPATIAL_EDITOR_MENU, save_level_preview_button)
-	add_control_to_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
-	save_level_preview_button.show()
+	#add_control_to_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
 
 func _remove_save_button_from_toolbar():
 	if !save_level_preview_button:
 		return
 	
-	remove_control_from_container(EditorPlugin.CONTAINER_SPATIAL_EDITOR_MENU, save_level_preview_button)
-	remove_control_from_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
+	#remove_control_from_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
 
 func _on_save_preview_button_pressed():
 	if !current_level:
@@ -113,33 +109,14 @@ func _on_save_preview_button_pressed():
 	current_data.preview_path = save_path
 
 func _on_scene_changed(scene):
+	return
+	
 	if scene is Level2D:
 		current_level = scene
 		
-		if !scene.level_name:
-			return
-		
-		var data = LevelDataStorage.get_data_by_label(scene.level_name)
-		current_data = data
-		
-		_add_save_button_to_toolbar()
-		
-		return
-	
 	if scene is Level3D:
 		current_level = scene
 		
-		if !scene.level_name:
-			return
-		
-		var data = LevelDataStorage.get_data_by_label(scene.level_name)
-		current_data = data
-		
-		_add_save_button_to_toolbar()
-		
-		return
-	
-	_remove_save_button_from_toolbar()
 	
 	current_level = null
 	current_data = null
