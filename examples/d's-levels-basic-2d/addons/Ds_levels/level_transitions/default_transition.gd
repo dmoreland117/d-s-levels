@@ -5,11 +5,9 @@ extends LevelTransition
 
 
 func _transition_in():
-	show_next_level()
 	animation_player.play("anim")
 
 func _transition_out():
-	show_next_level()
 	animation_player.play_backwards("anim")
 
 

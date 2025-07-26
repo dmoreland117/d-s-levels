@@ -2,26 +2,26 @@ class_name LevelTransition
 extends Control
 
 
-enum {
-	TRANSITION_MODE_IN,
-	TRANSITION_MODE_OUT
-}
-
 signal transition_done()
-signal ok_show_next_level()
 
-var mode = 0
+var speed_scale:float
 
 
 func _ready() -> void:
-	if mode == TRANSITION_MODE_IN: _transition_in()
-	if mode == TRANSITION_MODE_OUT: _transition_out()
+	pass
 
 func transition_finished():
 	transition_done.emit()
 
-func show_next_level():
-	ok_show_next_level.emit()
+func transition_in() -> LevelTransition:
+	_transition_in()
+	
+	return self
+
+func transition_out() -> LevelTransition:
+	_transition_out()
+	
+	return self
 
 func _transition_in():
 	pass

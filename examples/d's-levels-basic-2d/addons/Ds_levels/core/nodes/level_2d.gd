@@ -67,6 +67,12 @@ func get_level_change_data() -> LevelChangeData:
 	
 	return level_change_data
 
+func get_level_data():
+	if !level_change_data:
+		return
+	
+	return level_change_data.level_data
+
 ## Returns the currently spawned Player.
 func get_player() -> Node:
 	if !player_instance:
