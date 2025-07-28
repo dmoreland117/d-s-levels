@@ -99,27 +99,16 @@ static func save_at_settings_path() -> bool:
 		'datas': datas,
 	}
 	
-	var file = FileAccess.open(LevelManagerPlugin.get_loading_screen_storage_path(), FileAccess.WRITE)
-	var dict_string = str(dict)
-	file.store_string(dict_string)
-	file.close()
-	return true
+	return StorageUtils.save_dict_to_file(dict, LevelManagerPlugin.get_loading_screen_storage_path())
 
 static func load_from_settings_path() -> bool:
 	if is_loaded:
 		return true
 		
 	var path = LevelManagerPlugin.get_loading_screen_storage_path()
-	if !FileAccess.file_exists(path):
-		return false
-		
-	var dict_string = FileAccess.get_file_as_string(LevelManagerPlugin.get_loading_screen_storage_path())
-	if dict_string.is_empty():
-		print('dict is empty')
-		save_at_settings_path()
 	
-	var dict:Dictionary = JSON.parse_string(dict_string)
-	if !dict:
+	var dict:Dictionary = StorageUtils.load_dict_from_path(path)
+	if dict.is_empty():
 		print('failed parsing json')
 		return false
 	
