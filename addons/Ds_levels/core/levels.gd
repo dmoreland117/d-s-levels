@@ -20,12 +20,12 @@ static func load_level_in_background():
 	assert(false, 'This Methos is not implemented yet.')
 
 ## Unloads any current levels and changes to the provided [level] at [spawn] with [args].
-static func change_to_level(level:LevelData, spawn:String, args:Dictionary = {}):
+static func change_to_level(level:LevelData, spawn:String = 'default', args:Dictionary = {}):
 	var transition_speed_scale:float = args.get(ARG_TRANSITION_SPEED, 1.0)
 	
+	_current_transition = TransitionUtils.create_transition_instance(0, transition_speed_scale)
+	_add_transition_to_container()
 	if _current_level:
-		_current_transition = TransitionUtils.create_transition_instance(0, transition_speed_scale)
-		_add_transition_to_container()
 		await _transition_out().transition_done
 		
 		# start transition in 
@@ -41,7 +41,7 @@ static func change_to_level(level:LevelData, spawn:String, args:Dictionary = {})
 
 ## Unloads the current level and loads the start level set in the Levels tab
 ## at [spawn] with [args].
-static func change_to_start_level(spawn:String, args:Dictionary = {}):
+static func change_to_start_level(spawn:String = 'default', args:Dictionary = {}):
 	if !LevelDataStorage.is_storage_loaded():
 		return
 	
@@ -49,7 +49,7 @@ static func change_to_start_level(spawn:String, args:Dictionary = {}):
 	change_to_level(data, spawn, args)
 
 ## Unloads any current levels and changes to the provided [label] at [spawn] with [args].
-static func change_to_level_name(label:String, spawn:String, args:Dictionary = {}):
+static func change_to_level_name(label:String, spawn:String = 'default', args:Dictionary = {}):
 	var data = LevelDataStorage.get_data_by_label(label)
 	if !data:
 		return
@@ -95,7 +95,7 @@ static func _on_level_loaded(label:String, level:Node):
 	
 	_current_level = level
 	
-	if _current_transition:
+	if _current_transition and _loading_screen:
 		await _transition_out().transition_done
 
 	_hide_loading_screen()

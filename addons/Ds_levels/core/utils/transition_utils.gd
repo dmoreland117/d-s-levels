@@ -7,6 +7,9 @@ const DEFAULT_TRANSITION_PATH = "res://addons/Ds_levels/level_transitions/defaul
 static func create_transition_instance(index:int, speed_scale:float = 1.0) -> LevelTransition:
 	# TODO: Get the real path from storage that i still need to create
 	
+	if index == -1:
+		return
+	
 	var path = DEFAULT_TRANSITION_PATH
 	var scene:PackedScene = load(path)
 	var instance:LevelTransition
