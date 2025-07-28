@@ -74,7 +74,7 @@ func _on_add_screen_butto_pressed() -> void:
 	LoadingScreenDataStorage.add_data(new_screen_label, new_screen_path)
 	
 	new_loading_screen_input.text = ''
-	new_loading_screen_path_picker.current_path = ''
+	new_loading_screen_path_picker.start_path = ''
 	refresh_loading_screen_list()
 
 func _on_set_storage_button_pressed() -> void:
