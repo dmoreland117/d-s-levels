@@ -6,7 +6,7 @@ extends VBoxContainer
 
 
 func _ready() -> void:
-	file_picker.current_path = LevelManagerPlugin.get_loading_screen_storage_path()
+	file_picker.start_path = LevelManagerPlugin.get_loading_screen_storage_path()
 
 func _on_accept_button_pressed() -> void:
 	LevelManagerPlugin.set_loading_screen_storage_path(file_picker.current_path)

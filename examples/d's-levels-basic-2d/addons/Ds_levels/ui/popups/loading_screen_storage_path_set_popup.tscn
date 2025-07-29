@@ -12,7 +12,7 @@ script = ExtResource("1_13re1")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
-start_path = "res://resources/level_storage.json"
+start_path = "res://level_data/loading_screen_storage.json"
 file_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

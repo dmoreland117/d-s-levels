@@ -11,7 +11,7 @@ var current_path:String = ''
 func _ready() -> void:
 	start_path = LevelManagerPlugin.get_levels_storage_path()
 	current_path = start_path
-	file_picker.start_path = start_path
+	file_picker.start_path = current_path
 
 func _on_file_picker_path_changed(path: String) -> void:
 	current_path = path

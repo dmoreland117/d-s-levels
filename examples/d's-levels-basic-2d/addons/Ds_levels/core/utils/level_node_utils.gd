@@ -60,8 +60,9 @@ static func create_player(path:String, spawn) -> Node:
 	if !player_instance:
 		return
 	
-	player_instance.position = spawn.position
-	player_instance.rotation = spawn.rotation
+	if !Engine.is_editor_hint():
+		player_instance.position = spawn.position
+		player_instance.rotation = spawn.rotation
 	
 	return player_instance
 
