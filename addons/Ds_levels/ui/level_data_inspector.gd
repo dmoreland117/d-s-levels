@@ -85,6 +85,7 @@ func _populate_inspector():
 	show_level_loading_screen_input.button_pressed = data.show_loading_screen
 	loading_screen_background_picker.start_path = data.loading_screen_background_path
 	
+	loading_screen_label_dropdown.select(-1)
 	loading_screen_label_dropdown.clear()
 	if LoadingScreenDataStorage.is_storage_loaded():
 		var loading_screen_datas = LoadingScreenDataStorage.get_data_list()
@@ -104,4 +105,4 @@ func clear_inspector():
 	level_hidden_input.button_pressed = false
 	show_level_loading_screen_input.button_pressed = false
 	loading_screen_background_picker.start_path = ''
-	loading_screen_label_dropdown.select(0)
+	loading_screen_label_dropdown.select(-1)
