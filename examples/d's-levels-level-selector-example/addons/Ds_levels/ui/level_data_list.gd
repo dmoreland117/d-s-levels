@@ -8,6 +8,8 @@ signal edit_pressed(index:int)
 @onready var add_level_button: Button = %add_level_button
 @onready var refresh_levels_button: Button = %refresh_levels_button
 @onready var select_storage_path_button: Button = %select_storage_path_button
+@onready var new_level_label_input: LineEdit = %new_level_label_input
+@onready var new_level_path_picker: LineFilePicker = %new_level_path_picker
 
 
 func _ready() -> void:
@@ -51,7 +53,25 @@ func _on_add_level_button_pressed() -> void:
 		PopupUtils.show_error_popup('Please select Level Storage Path.')
 		return
 	
-	await PopupUtils.show_add_level_popup().tree_exited
+	var new_level_data:LevelData = LevelData.new()
+	
+	if new_level_label_input.text.is_empty():
+		PopupUtils.show_error_popup('Please provide a level name')
+		return
+	
+	new_level_data.label = new_level_label_input.text
+	
+	if !ResourceLoader.exists(new_level_path_picker.current_path):
+		PopupUtils.show_error_popup('%s Does not exits' % new_level_path_picker.current_path)
+		return
+		
+	new_level_data.level_path = new_level_path_picker.current_path
+	
+	LevelDataStorage.add_data(new_level_data)
+	
+	new_level_label_input.text = ''
+	new_level_path_picker.start_path = ''
+	
 	_populate_levels_list()
 
 func _on_select_storage_path_button_pressed() -> void:

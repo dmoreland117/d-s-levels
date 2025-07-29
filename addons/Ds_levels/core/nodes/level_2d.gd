@@ -6,6 +6,7 @@ extends Node2D
 
 signal level_start(args:LevelChangeData)
 
+@export var level_name:String = ''
 @export var environment:Environment: set = set_environment
 ## If set this scene will be loadied instead of the path defined in the levels tab
 @export_file('*.tscn') var player_scene_path_override:String
@@ -30,6 +31,8 @@ func _ready() -> void:
 	)
 	
 	if Engine.is_editor_hint():
+		_set_current_spawn_point()
+		_set_up_player()
 		return
 	
 	if !level_change_data:
@@ -66,6 +69,12 @@ func get_level_change_data() -> LevelChangeData:
 	
 	return level_change_data
 
+func get_level_data():
+	if !level_change_data:
+		return
+	
+	return level_change_data.level_data
+
 ## Returns the currently spawned Player.
 func get_player() -> Node:
 	if !player_instance:
@@ -91,14 +100,20 @@ func _add_world_env() -> bool:
 	return true
 
 func _set_current_spawn_point() -> bool:
-	if !level_change_data.spawn_point:
+	if !level_change_data and !Engine.is_editor_hint():
 		printerr('Level_change_data.spawn_point is null')
 		return false
-		
-	current_spawn_point_node = LevelNodeUtils.get_current_spawn_point(
-		get_spawn_points(), 
-		level_change_data.spawn_point
-	)
+	
+	if !Engine.is_editor_hint():
+		current_spawn_point_node = LevelNodeUtils.get_current_spawn_point(
+			get_spawn_points(), 
+			level_change_data.spawn_point
+		)
+	else:
+		current_spawn_point_node = LevelNodeUtils.get_current_spawn_point(
+			get_spawn_points(), 
+			'default'
+		)
 	
 	if !current_spawn_point_node:
 		return false
@@ -107,7 +122,7 @@ func _set_current_spawn_point() -> bool:
 
 func _set_up_player() -> bool:
 	if !LevelDataStorage.is_storage_loaded():
-		printerr('storage is null')
+		printerr('storage is not loaded')
 		return false
 	
 	var player_path
@@ -125,6 +140,10 @@ func _set_up_player() -> bool:
 	if !player_instance:
 			return false
 	
+	if Engine.is_editor_hint():
+		current_spawn_point_node.add_child(player_instance)
+		return true
+		
 	add_child(player_instance)
 	
 	return true

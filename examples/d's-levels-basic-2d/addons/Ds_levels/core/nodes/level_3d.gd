@@ -5,6 +5,7 @@ extends Node3D
 
 signal level_start(args:LevelChangeData)
 
+@export var level_name:String = ''
 @export var environment:Environment: set = set_environment
 ## If set this scene will be loadied instead of the path defined in the levels tab
 @export_file('*.tscn') var player_scene_path_override:String
@@ -22,6 +23,8 @@ func _ready() -> void:
 		return
 	
 	if Engine.is_editor_hint():
+		_set_current_spawn_point()
+		_set_up_player()
 		return
 	
 	if !level_change_data:
@@ -38,6 +41,7 @@ func _ready() -> void:
 		printerr('Faild to create Player')
 		return
 
+## Set the [Environment] for the Level's [WorldEnvironment]
 func set_environment(env:Environment):
 	environment = env
 	
@@ -46,15 +50,24 @@ func set_environment(env:Environment):
 	
 	world_environment.environment = env
 
+## Returns all of the [SpawnPoint2D]s in the Level.
 func get_spawn_points() -> Array:
 	return LevelNodeUtils.get_spawn_points(self)
 
+## Returns the [LevelChangeData] for the Level
 func get_level_change_data() -> LevelChangeData:
 	if !level_change_data:
 		return
 	
 	return level_change_data
 
+func get_level_data():
+	if !level_change_data:
+		return
+	
+	return level_change_data.level_data
+
+## Returns the currently spawned Player.
 func get_player() -> Node:
 	if !player_instance:
 		return
@@ -79,14 +92,20 @@ func _add_world_env() -> bool:
 	return true
 
 func _set_current_spawn_point() -> bool:
-	if !level_change_data.spawn_point:
+	if !level_change_data and !Engine.is_editor_hint():
 		printerr('Level_change_data.spawn_point is null')
 		return false
-		
-	current_spawn_point_node = LevelNodeUtils.get_current_spawn_point(
-		get_spawn_points(), 
-		level_change_data.spawn_point
-	)
+	
+	if !Engine.is_editor_hint():
+		current_spawn_point_node = LevelNodeUtils.get_current_spawn_point(
+			get_spawn_points(), 
+			level_change_data.spawn_point
+		)
+	else:
+		current_spawn_point_node = LevelNodeUtils.get_current_spawn_point(
+			get_spawn_points(), 
+			'default'
+		)
 	
 	if !current_spawn_point_node:
 		return false
@@ -113,6 +132,10 @@ func _set_up_player() -> bool:
 	if !player_instance:
 			return false
 	
+	if Engine.is_editor_hint():
+		current_spawn_point_node.add_child(player_instance)
+		return true
+		
 	add_child(player_instance)
 	
 	return true

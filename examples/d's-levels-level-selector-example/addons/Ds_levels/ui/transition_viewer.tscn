@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://udt5hld3sbae"]
+
+[ext_resource type="Script" uid="uid://rq77lfrowu85" path="res://addons/Ds_levels/ui/transition_viewer.gd" id="1_o67hn"]
+[ext_resource type="PackedScene" uid="uid://cpbreop72mmm" path="res://addons/Ds_levels/level_transitions/default_transition.tscn" id="2_emcv2"]
+[ext_resource type="Texture2D" uid="uid://b0ijaryps127w" path="res://icon.png" id="2_ovvo3"]
+
+[node name="transition_viewer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o67hn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Transition Viewer"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/VBoxContainer/SubViewportContainer"]
+size = Vector2i(640, 480)
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/SubViewportContainer/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ovvo3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="default_transition" parent="MarginContainer/VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("2_emcv2")]
+unique_name_in_owner = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="trans_in_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Transition in"
+
+[node name="trans_out_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Transition Out"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/trans_in_button" to="." method="_on_trans_in_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/trans_out_button" to="." method="_on_trans_out_button_pressed"]

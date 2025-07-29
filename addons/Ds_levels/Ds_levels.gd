@@ -10,14 +10,24 @@ const DEFAULT_LOADING_SCREENS_PATH = 'res://loading_screen_storage.tres'
 const LEVEL_MANAGER_UI = preload("res://addons/Ds_levels/ui/level_manager_ui.tscn")
 
 var main_screen_ui:Control
+var current_level:Node
+var current_data:LevelData
+var save_level_preview_button:Button
 
 func _enter_tree() -> void:
 	_add_resource_paths_to_project_settings()
 	_add_main_screen_ui()
+	
+	scene_changed.connect(_on_scene_changed)
+	
+	save_level_preview_button = Button.new()
+	save_level_preview_button.text = 'Save Preview'
+	save_level_preview_button.pressed.connect(_on_save_preview_button_pressed)
 
 func _exit_tree() -> void:
 	_remove_resource_path_from_project_settings()
 	_remove_main_screen_ui()
+	save_level_preview_button.queue_free()
 
 func _get_plugin_name() -> String:
 	return 'Levels'
@@ -73,7 +83,47 @@ func _remove_resource_path_from_project_settings():
 		return
 	
 	ProjectSettings.set_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING, null)
+
+func _add_save_button_to_toolbar():
+	if !save_level_preview_button:
+		return
 	
+	#add_control_to_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
+
+func _remove_save_button_from_toolbar():
+	if !save_level_preview_button:
+		return
+	
+	#remove_control_from_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
+
+func _on_save_preview_button_pressed():
+	if !current_level:
+		return
+	
+	if !current_data:
+		return
+	
+	var texture = EditorInterface.get_editor_viewport_3d(0).get_texture().get_image()
+	var save_path = 'res://addons/Ds_levels/preview_cache/' + current_data.label + '_3d_prev_cache.png'
+	texture.save_png(save_path)
+	current_data.preview_path = save_path
+
+func _on_scene_changed(scene):
+	return
+	
+	if scene is Level2D:
+		current_level = scene
+		
+	if scene is Level3D:
+		current_level = scene
+		
+	
+	current_level = null
+	current_data = null
+
+func _on_scene_saved(path):
+	pass
+
 static func set_levels_storage_path(path:String):
 	if !ProjectSettings.has_setting(LEVELS_RESOURCE_PATH_SETTING):
 		return
