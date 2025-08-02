@@ -2,7 +2,6 @@
 extends VBoxContainer
 
 
-
 signal saved()
 
 @onready var level_label_input: LineEdit = %level_label_input
