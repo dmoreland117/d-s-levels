@@ -5,8 +5,10 @@ class_name LevelManagerPlugin
 
 const LEVELS_RESOURCE_PATH_SETTING = "ds_levels/directories/level_storage_path"
 const LOADING_SCREENS_RESOURCE_PATH_SETTING = "ds_levels/directories/loading_screen_storage_path"
+const TRANSITION_RESOURCE_PATH_SETTING = "ds_levels/directories/loading_screen_storage_path"
 const DEFAULT_LEVELS_PATH = 'res://addons/Ds_levels/default_data/level_storage.json'
 const DEFAULT_LOADING_SCREENS_PATH = 'res://addons/Ds_levels/default_data/loading_screen_storage.json'
+const DEFAULT_TRANSITION_PATH = 'res://addons/Ds_levels/default_data/transition_storage.json'
 const LEVEL_MANAGER_UI = preload("res://addons/Ds_levels/ui/level_manager_ui.tscn")
 
 var main_screen_ui:Control
@@ -57,10 +59,13 @@ func _remove_main_screen_ui():
 
 func _add_resource_paths_to_project_settings():
 	if !ProjectSettings.has_setting(LEVELS_RESOURCE_PATH_SETTING):
-		ProjectSettings.set_setting(LEVELS_RESOURCE_PATH_SETTING, 'res://')
+		ProjectSettings.set_setting(LEVELS_RESOURCE_PATH_SETTING, DEFAULT_LEVELS_PATH)
 	
 	if !ProjectSettings.has_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING):
-		ProjectSettings.set_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING, 'res://')
+		ProjectSettings.set_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING, DEFAULT_LOADING_SCREENS_PATH)
+	
+	if !ProjectSettings.has_setting(TRANSITION_RESOURCE_PATH_SETTING):
+		ProjectSettings.set_setting(TRANSITION_RESOURCE_PATH_SETTING, DEFAULT_TRANSITION_PATH)
 		
 	ProjectSettings.add_property_info({
 		'name': LEVELS_RESOURCE_PATH_SETTING,
@@ -69,6 +74,11 @@ func _add_resource_paths_to_project_settings():
 	})
 	ProjectSettings.add_property_info({
 		'name': LOADING_SCREENS_RESOURCE_PATH_SETTING,
+		'type': TYPE_STRING,
+		'hint': PROPERTY_HINT_FILE
+	})
+	ProjectSettings.add_property_info({
+		'name': TRANSITION_RESOURCE_PATH_SETTING,
 		'type': TYPE_STRING,
 		'hint': PROPERTY_HINT_FILE
 	})
@@ -83,6 +93,11 @@ func _remove_resource_path_from_project_settings():
 		return
 	
 	ProjectSettings.set_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING, null)
+	
+	if !ProjectSettings.has_setting(TRANSITION_RESOURCE_PATH_SETTING):
+		return
+	
+	ProjectSettings.set_setting(TRANSITION_RESOURCE_PATH_SETTING, null)
 
 func _add_save_button_to_toolbar():
 	if !save_level_preview_button:
@@ -137,9 +152,19 @@ static func set_loading_screen_storage_path(path:String):
 	
 	ProjectSettings.set_setting(LOADING_SCREENS_RESOURCE_PATH_SETTING, path)
 	ProjectSettings.save()
+
+static func set_transition_storage_path(path:String):
+	if !ProjectSettings.has_setting(TRANSITION_RESOURCE_PATH_SETTING):
+		return
+	
+	ProjectSettings.set_setting(TRANSITION_RESOURCE_PATH_SETTING, path)
+	ProjectSettings.save()
 	
 static func get_levels_storage_path() -> String:
 	return ProjectSettings.get_setting(LevelManagerPlugin.LEVELS_RESOURCE_PATH_SETTING)
 
 static func get_loading_screen_storage_path() -> String:
 	return ProjectSettings.get_setting(LevelManagerPlugin.LOADING_SCREENS_RESOURCE_PATH_SETTING)
+
+static func get_transition_storage_path() -> String:
+	return ProjectSettings.get_setting(LevelManagerPlugin.TRANSITION_RESOURCE_PATH_SETTING)
