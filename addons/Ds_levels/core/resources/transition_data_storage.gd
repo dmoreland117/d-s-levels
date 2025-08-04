@@ -2,7 +2,7 @@ class_name TransitionDataStorage
 extends Resource
 
 
-static var transition_infos:Array[Dictionary] = []
+static var transition_infos:Array = []
 static var _is_loaded:bool = false
 
 
@@ -27,7 +27,7 @@ static func get_index_by_label(label:Label):
 		label
 	)
 
-static func get_data_list() -> Array[Dictionary]:
+static func get_data_list() -> Array:
 	return transition_infos
 
 static func get_data(index):
@@ -38,13 +38,13 @@ static func save_at_settings_path() -> bool:
 		'data': transition_infos
 	}
 	
-	return StorageUtils.save_dict_to_file(data, '')
+	return StorageUtils.save_dict_to_file(data, LevelManagerPlugin.get_transition_storage_path())
 
 static func load_from_settings_path() -> bool:
 	if _is_loaded:
 		return true
 	
-	var dict = StorageUtils.load_dict_from_path('')
+	var dict = StorageUtils.load_dict_from_path(LevelManagerPlugin.get_transition_storage_path())
 	if dict.is_empty():
 		return false
 	

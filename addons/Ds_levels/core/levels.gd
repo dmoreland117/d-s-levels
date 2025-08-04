@@ -89,6 +89,8 @@ static func _set_level_container(container:Node):
 	
 	LevelDataStorage.load_from_settings_path()
 	LoadingScreenDataStorage.load_from_settings_path()
+	TransitionDataStorage.load_from_settings_path()
+	
 
 static func _on_level_loaded(label:String, level:Node):
 	var data = level.get_level_data()
