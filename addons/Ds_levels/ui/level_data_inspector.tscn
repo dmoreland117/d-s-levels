@@ -37,7 +37,7 @@ flat = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
-text = "Set Default"
+text = "Set Start"
 flat = true
 
 [node name="Panel2" type="Panel" parent="."]

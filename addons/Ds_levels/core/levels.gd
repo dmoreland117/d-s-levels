@@ -26,7 +26,7 @@ static func change_to_level(level:LevelData, spawn:String = 'default', args:Dict
 	_current_transition = TransitionUtils.create_transition_instance(0, transition_speed_scale)
 	_add_transition_to_container()
 	if _current_level:
-		await _transition_out().transition_done
+		await _transition_out().show_next_level
 		
 		# start transition in 
 		# wait for it to finish

@@ -63,7 +63,7 @@ flat = true
 [node name="select_storage_path_button" type="Button" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Select storage path"
+text = "Select storage Path"
 icon = SubResource("ImageTexture_kr2lt")
 flat = true
 
