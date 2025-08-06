@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://86wp7jhk0f6u"]
 
-[ext_resource type="Script" uid="uid://dosh46m3qh280" path="res://addons/Ds_levels/ui/loading_screens_table.gd" id="1_rg57i"]
-[ext_resource type="PackedScene" uid="uid://cqs0k3t3lskoy" path="res://addons/Ds_levels/ui/table_header.tscn" id="2_0bk5u"]
+[ext_resource type="Script" uid="uid://dosh46m3qh280" path="res://addons/Ds_levels/ui/tables/loading_screen_data_table.gd" id="1_rg57i"]
+[ext_resource type="PackedScene" uid="uid://cqs0k3t3lskoy" path="res://addons/Ds_levels/ui/tables/table_header.tscn" id="2_0bk5u"]
 
 [node name="loading_screens_table" type="VBoxContainer"]
 script = ExtResource("1_rg57i")

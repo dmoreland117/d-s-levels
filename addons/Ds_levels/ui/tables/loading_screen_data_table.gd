@@ -2,7 +2,7 @@
 extends VBoxContainer
 
 
-const LOADING_SCREEN_TABLE_ITEM = preload("res://addons/Ds_levels/ui/loading_screen_table_item.tscn")
+const LOADING_SCREEN_TABLE_ITEM = preload("res://addons/Ds_levels/ui/tables/loading_screen_table_item.tscn")
 
 signal row_edited(index:int, data:Dictionary)
 signal remove_pressed(index:int)

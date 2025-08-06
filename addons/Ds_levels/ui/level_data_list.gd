@@ -14,7 +14,6 @@ signal edit_pressed(index:int)
 
 func _ready() -> void:
 	if !LevelDataStorage.load_from_settings_path():
-		printerr('Level_manager_ui Failed to load level storage')
 		return
 	
 	_populate_levels_list()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://ri70gyj1we28"]
 
 [ext_resource type="Script" uid="uid://yp6phy77s6qo" path="res://addons/Ds_levels/ui/loading_screen_edit.gd" id="1_xnvsa"]
-[ext_resource type="PackedScene" uid="uid://86wp7jhk0f6u" path="res://addons/Ds_levels/ui/loading_screens_table.tscn" id="2_fd47w"]
+[ext_resource type="PackedScene" uid="uid://86wp7jhk0f6u" path="res://addons/Ds_levels/ui/tables/loading_screen_data_table.tscn" id="2_fd47w"]
 [ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_picker.tscn" id="3_fd47w"]
 
 [sub_resource type="Image" id="Image_fd47w"]

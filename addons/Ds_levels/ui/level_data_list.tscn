@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b55qa16iq6a8v"]
 
-[ext_resource type="PackedScene" uid="uid://tvory1kpmv5x" path="res://addons/Ds_levels/ui/levels_table.tscn" id="1_2kosw"]
+[ext_resource type="PackedScene" uid="uid://tvory1kpmv5x" path="res://addons/Ds_levels/ui/tables/level_data_table.tscn" id="1_2kosw"]
 [ext_resource type="Script" uid="uid://k8c3ssno6fig" path="res://addons/Ds_levels/ui/level_data_list.gd" id="1_khp7c"]
 [ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_picker.tscn" id="3_thu2n"]
 

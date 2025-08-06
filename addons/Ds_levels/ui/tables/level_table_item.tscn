@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d0k11fo8q87r0"]
 
-[ext_resource type="Script" uid="uid://sjyk56mg0lk3" path="res://addons/Ds_levels/ui/level_tabel_item.gd" id="1_nhkv4"]
+[ext_resource type="Script" uid="uid://sjyk56mg0lk3" path="res://addons/Ds_levels/ui/tables/level_table_item.gd" id="1_nhkv4"]
 
 [sub_resource type="Image" id="Image_6e6bf"]
 data = {

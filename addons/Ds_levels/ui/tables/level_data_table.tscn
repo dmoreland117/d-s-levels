@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://tvory1kpmv5x"]
 
-[ext_resource type="PackedScene" uid="uid://cqs0k3t3lskoy" path="res://addons/Ds_levels/ui/table_header.tscn" id="1_aaviu"]
-[ext_resource type="Script" uid="uid://ootbyloufgt7" path="res://addons/Ds_levels/ui/levels_table.gd" id="1_skjte"]
+[ext_resource type="PackedScene" uid="uid://cqs0k3t3lskoy" path="res://addons/Ds_levels/ui/tables/table_header.tscn" id="1_aaviu"]
+[ext_resource type="Script" uid="uid://ootbyloufgt7" path="res://addons/Ds_levels/ui/tables/level_data_table.gd" id="1_skjte"]
 
 [sub_resource type="Image" id="Image_1hvsp"]
 data = {

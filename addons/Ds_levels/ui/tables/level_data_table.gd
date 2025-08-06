@@ -2,7 +2,7 @@
 extends VBoxContainer
 
 
-const LEVEL_TABEL_ITEM = preload("res://addons/Ds_levels/ui/level_tabel_item.tscn")
+const LEVEL_TABEL_ITEM = preload("res://addons/Ds_levels/ui/tables/level_table_item.tscn")
 
 signal edit_pressed(index:int)
 signal open_pressed(index:int)

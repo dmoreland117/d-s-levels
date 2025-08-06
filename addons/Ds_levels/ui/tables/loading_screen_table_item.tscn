@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://da5wgfk7nxnpn"]
 
 [ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_picker.tscn" id="1_n82o7"]
-[ext_resource type="Script" uid="uid://ywxw8u38ruv2" path="res://addons/Ds_levels/ui/loading_screen_table_item.gd" id="1_y54n3"]
+[ext_resource type="Script" uid="uid://ywxw8u38ruv2" path="res://addons/Ds_levels/ui/tables/loading_screen_table_item.gd" id="1_y54n3"]
 
 [sub_resource type="Image" id="Image_y54n3"]
 data = {

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqs0k3t3lskoy"]
 
-[ext_resource type="Script" uid="uid://cgpffve4eakry" path="res://addons/Ds_levels/ui/table_header.gd" id="1_bw2fh"]
+[ext_resource type="Script" uid="uid://cgpffve4eakry" path="res://addons/Ds_levels/ui/tables/table_header.gd" id="1_bw2fh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bnjo"]
 bg_color = Color(0, 0, 0, 0.423529)
