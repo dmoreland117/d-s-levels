@@ -10,7 +10,8 @@ static func create_transition_instance(index:int, speed_scale:float = 1.0) -> Le
 	if index == -1:
 		return
 	
-	var path = DEFAULT_TRANSITION_PATH
+	var transition = TransitionDataStorage.get_data(index)
+	var path = transition.get('path')
 	var scene:PackedScene = load(path)
 	var instance:LevelTransition
 	

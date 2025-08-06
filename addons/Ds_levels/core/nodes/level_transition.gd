@@ -3,6 +3,7 @@ extends Control
 
 
 signal transition_done()
+signal show_next_level()
 
 var speed_scale:float
 
@@ -22,6 +23,9 @@ func transition_out() -> LevelTransition:
 	_transition_out()
 	
 	return self
+
+func load_next_level():
+	show_next_level.emit()
 
 func _transition_in():
 	pass

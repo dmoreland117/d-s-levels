@@ -13,8 +13,9 @@ signal saved()
 @onready var loading_screen_label_dropdown: OptionButton = %loading_screen_label_dropdown
 @onready var level_hidden_input: CheckBox = %level_hidden_input
 @onready var set_default_button: Button = %set_default_button
+@onready var level_preview_viewer: VBoxContainer = %level_preview_viewer
 
-var index:int = -1
+var level_index:int
 var data:LevelData
 
 
@@ -22,15 +23,16 @@ func _ready() -> void:
 	set_index(-1)
 	
 func set_index(idx:int):
-	index = idx
+	level_index = idx
 	
-	if index == -1 or !LevelDataStorage.is_storage_loaded():
+	if level_index == -1:
 		data = null
 		clear_inspector()
 		
+		margin_container.hide()
 		return
 	
-	data = LevelDataStorage.get_data_by_index(index)
+	data = LevelDataStorage.get_data_by_index(level_index)
 	_populate_inspector()
 	
 	margin_container.show()
@@ -54,12 +56,12 @@ func _on_save_button_pressed() -> void:
 	data.loading_screen_name = loading_screen_label_dropdown.get_item_text(
 		loading_screen_label_dropdown.selected
 	)
-	LevelDataStorage.edit_data(index, data)
+	LevelDataStorage.edit_data(level_index, data)
 	
 	saved.emit()
 
 func _on_reset_button_pressed() -> void:
-	set_index(index)
+	set_index(level_index)
 
 func _on_clear_button_pressed() -> void:
 	clear_inspector()
@@ -69,13 +71,15 @@ func _on_set_default_button_pressed() -> void:
 		PopupUtils.show_error_popup('Failed to set default Level')
 		return
 	
-	LevelDataStorage.set_start_level(index)
+	LevelDataStorage.set_start_level(level_index)
 	
 	saved.emit()
 
 func _populate_inspector():
 	if !data:
 		return
+	
+	level_preview_viewer.path = data.preview_path
 	
 	level_label_input.text = data.label
 	level_description_input.text = data.description

@@ -5,8 +5,8 @@ class_name LevelManagerPlugin
 
 const LEVELS_RESOURCE_PATH_SETTING = "ds_levels/directories/level_storage_path"
 const LOADING_SCREENS_RESOURCE_PATH_SETTING = "ds_levels/directories/loading_screen_storage_path"
-const DEFAULT_LEVELS_PATH = 'res://level_storage.tres'
-const DEFAULT_LOADING_SCREENS_PATH = 'res://loading_screen_storage.tres'
+const DEFAULT_LEVELS_PATH = 'res://addons/Ds_levels/default_data/level_storage.json'
+const DEFAULT_LOADING_SCREENS_PATH = 'res://addons/Ds_levels/default_data/loading_screen_storage.json'
 const LEVEL_MANAGER_UI = preload("res://addons/Ds_levels/ui/level_manager_ui.tscn")
 
 var main_screen_ui:Control

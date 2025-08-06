@@ -2,6 +2,7 @@ class_name Levels
 ## A static class that can change and unload [Levels]
 
 
+const ARG_TRANSITION_NAME = 'transition_name'
 const ARG_TRANSITION_SPEED = 'transition_speed'
 
 static var _loading_screen_container:CanvasLayer
@@ -22,11 +23,12 @@ static func load_level_in_background():
 ## Unloads any current levels and changes to the provided [level] at [spawn] with [args].
 static func change_to_level(level:LevelData, spawn:String = 'default', args:Dictionary = {}):
 	var transition_speed_scale:float = args.get(ARG_TRANSITION_SPEED, 1.0)
+	var transition_name:String = args.get(ARG_TRANSITION_NAME, 'fade')
 	
-	_current_transition = TransitionUtils.create_transition_instance(0, transition_speed_scale)
+	_current_transition = TransitionUtils.create_transition_instance(TransitionDataStorage.get_index_by_label(transition_name), transition_speed_scale)
 	_add_transition_to_container()
 	if _current_level:
-		await _transition_out().transition_done
+		await _transition_out().show_next_level
 		
 		# start transition in 
 		# wait for it to finish
@@ -89,6 +91,8 @@ static func _set_level_container(container:Node):
 	
 	LevelDataStorage.load_from_settings_path()
 	LoadingScreenDataStorage.load_from_settings_path()
+	TransitionDataStorage.load_from_settings_path()
+	
 
 static func _on_level_loaded(label:String, level:Node):
 	var data = level.get_level_data()
@@ -139,6 +143,7 @@ static func _add_transition_container():
 		return
 	
 	var c = CanvasLayer.new()
+	c.name = 'transitions'
 	_transition_container = c
 	
 	_level_container.add_child(c)
@@ -167,11 +172,8 @@ static func _add_transition_to_container():
 	_transition_container.add_child(_current_transition)
 	
 static func _free_current_transition():
-	if !_current_transition:
-		return
+	for child in _transition_container.get_children():
+		_transition_container.remove_child(child)
+		child.queue_free()
 	
-	if !_transition_container:
-		return
-	
-	_transition_container.remove_child(_current_transition)
-	_current_transition.queue_free()
+	_current_transition = null
