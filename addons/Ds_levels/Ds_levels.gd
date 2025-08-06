@@ -11,7 +11,7 @@ const DEFAULT_LEVELS_PATH = 'res://addons/Ds_levels/default_data/level_storage.j
 const DEFAULT_LOADING_SCREENS_PATH = 'res://addons/Ds_levels/default_data/loading_screen_storage.json'
 const DEFAULT_TRANSITION_PATH = 'res://addons/Ds_levels/default_data/transition_storage.json'
 
-const LEVEL_MANAGER_UI = preload("res://addons/Ds_levels/ui/level_manager_ui.tscn")
+const LEVEL_MANAGER_UI = preload("res://addons/Ds_levels/ui/main_ui.tscn")
 
 var main_screen_ui:Control
 var current_level:Node

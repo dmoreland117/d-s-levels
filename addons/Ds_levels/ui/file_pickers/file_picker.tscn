@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvd6im2at4f60"]
 
-[ext_resource type="Script" uid="uid://2pkbivokjesg" path="res://addons/Ds_levels/ui/file_picker.gd" id="1_8dvx4"]
+[ext_resource type="Script" uid="uid://2pkbivokjesg" path="res://addons/Ds_levels/ui/file_pickers/file_picker.gd" id="1_8dvx4"]
 
 [sub_resource type="Image" id="Image_gig7x"]
 data = {

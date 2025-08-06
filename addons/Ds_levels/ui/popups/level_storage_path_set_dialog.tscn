@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bv3py6ft1iu30"]
 
 [ext_resource type="Script" uid="uid://xy57oyri8ecu" path="res://addons/Ds_levels/ui/popups/level_storage_path_set_dialog.gd" id="1_cfqhp"]
-[ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_picker.tscn" id="2_36p0v"]
+[ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_pickers/file_picker.tscn" id="2_36p0v"]
 
 [node name="level_storage_path_set_dialog" type="VBoxContainer"]
 offset_right = 547.0

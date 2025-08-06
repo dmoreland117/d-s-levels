@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b55qa16iq6a8v"]
+[gd_scene load_steps=10 format=3 uid="uid://ri70gyj1we28"]
 
-[ext_resource type="PackedScene" uid="uid://tvory1kpmv5x" path="res://addons/Ds_levels/ui/tables/level_data_table.tscn" id="1_2kosw"]
-[ext_resource type="Script" uid="uid://k8c3ssno6fig" path="res://addons/Ds_levels/ui/level_data_list.gd" id="1_khp7c"]
-[ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_picker.tscn" id="3_thu2n"]
+[ext_resource type="Script" uid="uid://yp6phy77s6qo" path="res://addons/Ds_levels/ui/tabs/loading_screen_data_editor/loading_screen_edit.gd" id="1_xnvsa"]
+[ext_resource type="PackedScene" uid="uid://86wp7jhk0f6u" path="res://addons/Ds_levels/ui/tables/loading_screen_data_table.tscn" id="2_fd47w"]
+[ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_pickers/file_picker.tscn" id="3_fd47w"]
 
-[sub_resource type="Image" id="Image_thu2n"]
+[sub_resource type="Image" id="Image_fd47w"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 3, 224, 224, 224, 105, 224, 224, 224, 192, 224, 224, 224, 244, 224, 224, 224, 238, 224, 224, 224, 197, 224, 224, 224, 105, 255, 255, 255, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 233, 233, 233, 23, 225, 225, 225, 207, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 198, 226, 226, 226, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 6, 224, 224, 224, 205, 224, 224, 224, 255, 224, 224, 224, 218, 225, 225, 225, 83, 237, 237, 237, 14, 237, 237, 237, 14, 224, 224, 224, 82, 224, 224, 224, 220, 224, 224, 224, 255, 224, 224, 224, 197, 255, 255, 255, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 225, 225, 225, 102, 224, 224, 224, 255, 224, 224, 224, 218, 227, 227, 227, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 16, 224, 224, 224, 221, 224, 224, 224, 255, 225, 225, 225, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 198, 224, 224, 224, 255, 225, 225, 225, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 226, 226, 226, 86, 224, 224, 224, 255, 224, 224, 224, 194, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 1, 255, 255, 255, 4, 224, 224, 224, 238, 224, 224, 224, 255, 227, 227, 227, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 229, 229, 229, 19, 224, 224, 224, 255, 224, 224, 224, 233, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 160, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 225, 225, 225, 159, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 230, 230, 230, 20, 224, 224, 224, 255, 224, 224, 224, 237, 0, 0, 0, 0, 0, 0, 0, 0, 230, 230, 230, 10, 224, 224, 224, 213, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 212, 230, 230, 230, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 90, 224, 224, 224, 255, 224, 224, 224, 185, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 225, 225, 225, 42, 224, 224, 224, 245, 224, 224, 224, 245, 225, 225, 225, 42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 232, 232, 232, 22, 224, 224, 224, 224, 224, 224, 224, 255, 224, 224, 224, 98, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 96, 226, 226, 226, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 230, 230, 230, 20, 224, 224, 224, 88, 224, 224, 224, 221, 224, 224, 224, 255, 225, 225, 225, 199, 255, 255, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 200, 227, 227, 227, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 236, 224, 224, 224, 195, 224, 224, 224, 96, 255, 255, 255, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGBA8",
@@ -13,10 +13,10 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_pn62n"]
-image = SubResource("Image_thu2n")
+[sub_resource type="ImageTexture" id="ImageTexture_as6f8"]
+image = SubResource("Image_fd47w")
 
-[sub_resource type="Image" id="Image_liudi"]
+[sub_resource type="Image" id="Image_rvf87"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 4, 224, 224, 224, 99, 224, 224, 224, 213, 224, 224, 224, 212, 224, 224, 224, 97, 255, 255, 255, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 4, 224, 224, 224, 99, 224, 224, 224, 222, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 220, 224, 224, 224, 97, 255, 255, 255, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 4, 224, 224, 224, 99, 224, 224, 224, 222, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 236, 224, 224, 224, 90, 225, 225, 225, 92, 224, 224, 224, 218, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 220, 224, 224, 224, 97, 255, 255, 255, 4, 0, 0, 0, 0, 0, 0, 0, 0, 225, 225, 225, 199, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 193, 224, 224, 224, 65, 255, 255, 255, 3, 226, 226, 226, 94, 224, 224, 224, 219, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 195, 0, 0, 0, 0, 255, 255, 255, 4, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 192, 224, 224, 224, 114, 224, 224, 224, 220, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 255, 255, 255, 3, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 217, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 216, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 255, 255, 255, 2, 224, 224, 224, 255, 224, 224, 224, 255, 255, 255, 255, 3, 225, 225, 225, 91, 224, 224, 224, 216, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 216, 225, 225, 225, 91, 255, 255, 255, 2, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 255, 255, 255, 2, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 3, 225, 225, 225, 91, 224, 224, 224, 255, 224, 224, 224, 255, 225, 225, 225, 91, 255, 255, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 255, 255, 255, 1, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 96, 255, 255, 255, 4, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 4, 224, 224, 224, 97, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 195, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 220, 224, 224, 224, 97, 255, 255, 255, 4, 224, 224, 224, 255, 224, 224, 224, 255, 255, 255, 255, 4, 224, 224, 224, 97, 224, 224, 224, 220, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 192, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 3, 225, 225, 225, 93, 224, 224, 224, 218, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 220, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 220, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 216, 225, 225, 225, 91, 255, 255, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 3, 225, 225, 225, 93, 224, 224, 224, 218, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 216, 225, 225, 225, 91, 255, 255, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 3, 225, 225, 225, 93, 224, 224, 224, 208, 225, 225, 225, 207, 225, 225, 225, 91, 255, 255, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGBA8",
@@ -25,10 +25,10 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_kr2lt"]
-image = SubResource("Image_liudi")
+[sub_resource type="ImageTexture" id="ImageTexture_03im1"]
+image = SubResource("Image_rvf87")
 
-[sub_resource type="Image" id="Image_yj37a"]
+[sub_resource type="Image" id="Image_rbvgl"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224, 224, 224, 255, 224, 224, 224, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGBA8",
@@ -37,40 +37,39 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_eplp1"]
-image = SubResource("Image_yj37a")
+[sub_resource type="ImageTexture" id="ImageTexture_6gxgk"]
+image = SubResource("Image_rbvgl")
 
-[node name="level_data_list" type="VBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
+[node name="loading_screen_edit" type="VBoxContainer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-script = ExtResource("1_khp7c")
+size_flags_vertical = 3
+script = ExtResource("1_xnvsa")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="refresh_levels_button" type="Button" parent="HBoxContainer"]
+[node name="refresh_screens_button" type="Button" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Refresh"
-icon = SubResource("ImageTexture_pn62n")
+text = "Refresh
+"
+icon = SubResource("ImageTexture_as6f8")
 flat = true
 
-[node name="select_storage_path_button" type="Button" parent="HBoxContainer"]
+[node name="set_storage_button" type="Button" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Select storage Path"
-icon = SubResource("ImageTexture_kr2lt")
+text = "Select Storage Path"
+icon = SubResource("ImageTexture_03im1")
 flat = true
 
 [node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
@@ -85,35 +84,35 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="levels_table" parent="Panel/MarginContainer" instance=ExtResource("1_2kosw")]
+[node name="loading_screens_table" parent="Panel/MarginContainer" instance=ExtResource("2_fd47w")]
 unique_name_in_owner = true
 layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="new_level_label_input" type="LineEdit" parent="HBoxContainer2"]
+[node name="new_loading_screen_input" type="LineEdit" parent="HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "New Level Label..."
+placeholder_text = "New Loading Screen Label..."
 
-[node name="new_level_path_picker" parent="HBoxContainer2" instance=ExtResource("3_thu2n")]
+[node name="new_loading_screen_path_picker" parent="HBoxContainer2" instance=ExtResource("3_fd47w")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "New Level Path..."
+placeholder_text = "New Loading Screen Path..."
 start_path = ""
 
-[node name="add_level_button" type="Button" parent="HBoxContainer2"]
+[node name="add_screen_butto" type="Button" parent="HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Add"
-icon = SubResource("ImageTexture_eplp1")
+icon = SubResource("ImageTexture_6gxgk")
 
-[connection signal="pressed" from="HBoxContainer/refresh_levels_button" to="." method="_on_refresh_levels_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/select_storage_path_button" to="." method="_on_select_storage_path_button_pressed"]
-[connection signal="edit_pressed" from="Panel/MarginContainer/levels_table" to="." method="_on_levels_table_edit_pressed"]
-[connection signal="open_pressed" from="Panel/MarginContainer/levels_table" to="." method="_on_levels_table_open_pressed"]
-[connection signal="remove_pressed" from="Panel/MarginContainer/levels_table" to="." method="_on_levels_table_remove_pressed"]
-[connection signal="pressed" from="HBoxContainer2/add_level_button" to="." method="_on_add_level_button_pressed"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="HBoxContainer/refresh_screens_button" to="." method="_on_refresh_screens_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/set_storage_button" to="." method="_on_set_storage_button_pressed"]
+[connection signal="remove_pressed" from="Panel/MarginContainer/loading_screens_table" to="." method="_on_loading_screens_table_remove_pressed"]
+[connection signal="row_edited" from="Panel/MarginContainer/loading_screens_table" to="." method="_on_loading_screens_table_row_edited"]
+[connection signal="pressed" from="HBoxContainer2/add_screen_butto" to="." method="_on_add_screen_butto_pressed"]

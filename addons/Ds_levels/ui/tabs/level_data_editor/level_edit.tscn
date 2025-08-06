@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dl6ssqdjq4t16"]
 
-[ext_resource type="Script" uid="uid://b0esaka7qg1j0" path="res://addons/Ds_levels/ui/level_edit.gd" id="1_rydob"]
-[ext_resource type="PackedScene" uid="uid://b55qa16iq6a8v" path="res://addons/Ds_levels/ui/level_data_list.tscn" id="2_4c1tu"]
-[ext_resource type="PackedScene" uid="uid://owscnbdnmsbp" path="res://addons/Ds_levels/ui/level_data_inspector.tscn" id="3_pykv7"]
+[ext_resource type="Script" uid="uid://b0esaka7qg1j0" path="res://addons/Ds_levels/ui/tabs/level_data_editor/level_edit.gd" id="1_rydob"]
+[ext_resource type="PackedScene" uid="uid://b55qa16iq6a8v" path="res://addons/Ds_levels/ui/tabs/level_data_editor/level_data_list.tscn" id="2_4c1tu"]
+[ext_resource type="PackedScene" uid="uid://owscnbdnmsbp" path="res://addons/Ds_levels/ui/tabs/level_data_editor/level_data_inspector.tscn" id="3_pykv7"]
 
 [node name="level_edit" type="HSplitContainer"]
 anchors_preset = 15

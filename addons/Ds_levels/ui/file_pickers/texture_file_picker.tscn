@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1n1eoykc148g"]
 
-[ext_resource type="Script" uid="uid://bgg3uj277v85f" path="res://addons/Ds_levels/ui/texture_file_picker.gd" id="1_qn1gw"]
-[ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_picker.tscn" id="1_yjq22"]
+[ext_resource type="Script" uid="uid://bgg3uj277v85f" path="res://addons/Ds_levels/ui/file_pickers/texture_file_picker.gd" id="1_qn1gw"]
+[ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_pickers/file_picker.tscn" id="1_yjq22"]
 
 [node name="texture_file_picker" type="HBoxContainer"]
 offset_right = 207.0

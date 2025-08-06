@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://w4c4lv7rl2g0"]
 
-[ext_resource type="Script" uid="uid://baj03m41s7a54" path="res://addons/Ds_levels/ui/level_manager_ui.gd" id="1_wi4mp"]
-[ext_resource type="PackedScene" uid="uid://dl6ssqdjq4t16" path="res://addons/Ds_levels/ui/level_edit.tscn" id="2_v4x0r"]
-[ext_resource type="PackedScene" uid="uid://ri70gyj1we28" path="res://addons/Ds_levels/ui/loading_screen_edit.tscn" id="3_xwexf"]
+[ext_resource type="Script" uid="uid://baj03m41s7a54" path="res://addons/Ds_levels/ui/main_ui.gd" id="1_wi4mp"]
+[ext_resource type="PackedScene" uid="uid://dl6ssqdjq4t16" path="res://addons/Ds_levels/ui/tabs/level_data_editor/level_edit.tscn" id="2_v4x0r"]
+[ext_resource type="PackedScene" uid="uid://ri70gyj1we28" path="res://addons/Ds_levels/ui/tabs/loading_screen_data_editor/loading_screen_edit.tscn" id="3_xwexf"]
 
 [node name="level_manager_ui" type="MarginContainer"]
 anchors_preset = 15
