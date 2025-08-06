@@ -143,6 +143,7 @@ static func _add_transition_container():
 		return
 	
 	var c = CanvasLayer.new()
+	c.name = 'transitions'
 	_transition_container = c
 	
 	_level_container.add_child(c)
@@ -171,11 +172,9 @@ static func _add_transition_to_container():
 	_transition_container.add_child(_current_transition)
 	
 static func _free_current_transition():
-	if !_current_transition:
-		return
+	print(_current_transition)
+	for child in _transition_container.get_children():
+		_transition_container.remove_child(child)
+		child.queue_free()
 	
-	if !_transition_container:
-		return
-	
-	_transition_container.remove_child(_current_transition)
-	_current_transition.queue_free()
+	_current_transition = null
