@@ -111,15 +111,16 @@ func _remove_save_button_from_toolbar():
 	if !save_level_preview_button:
 		return
 	
+	if !save_level_preview_button.get_parent():
+		return
+	
 	remove_control_from_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
 
 func _on_save_preview_button_pressed():
 	if !current_level:
-		print('no current level')
 		return
 	
 	if !current_data:
-		print('no current data')
 		return
 	
 	
@@ -154,10 +155,7 @@ func _on_scene_changed(scene):
 	
 	var path = current_level.scene_file_path
 	
-	print(path)
-	
 	current_data = LevelDataStorage.get_data_by_path(path)
-	print(current_data)
 
 func _on_scene_saved(path):
 	pass
