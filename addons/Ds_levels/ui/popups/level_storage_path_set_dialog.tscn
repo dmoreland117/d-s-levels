@@ -18,7 +18,7 @@ vertical_alignment = 1
 [node name="file_picker" parent="." instance=ExtResource("2_36p0v")]
 unique_name_in_owner = true
 layout_mode = 2
-start_path = "res://resources/level_storage.json"
+start_path = "res://addons/Ds_levels/default_data/level_storage.json"
 file_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

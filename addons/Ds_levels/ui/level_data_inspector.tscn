@@ -72,7 +72,6 @@ size_flags_vertical = 3
 [node name="level_preview_viewer" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_6fvj7")]
 unique_name_in_owner = true
 layout_mode = 2
-path = "res://addons/Ds_levels/preview_cache/testing_3d_prev_cache.png"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -91,7 +90,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-text = "testing"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -110,7 +108,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-text = "This a level for testing."
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -129,7 +126,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-start_path = "res://test_lvl.tscn"
+start_path = ""
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -184,6 +181,11 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+item_count = 2
+popup/item_0/text = "loading_screen_1"
+popup/item_0/id = 0
+popup/item_1/text = "loading_screen_2"
+popup/item_1/id = 1
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2

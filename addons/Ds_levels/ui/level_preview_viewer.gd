@@ -25,7 +25,7 @@ func _load_image() -> Texture:
 		if fullscreen_button:
 			fullscreen_button.disabled = true
 		
-		return load('res://addons/Ds_levels/icon.svg')
+		return load('res://addons/Ds_levels/icon.png')
 		
 	
 	fullscreen_button.disabled = false
