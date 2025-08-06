@@ -102,38 +102,62 @@ func _add_save_button_to_toolbar():
 	if !save_level_preview_button:
 		return
 	
-	#add_control_to_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
+	if current_level is Level2D:
+		add_control_to_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
+	if current_level is Level3D:
+		add_control_to_container(EditorPlugin.CONTAINER_SPATIAL_EDITOR_MENU, save_level_preview_button)
 
 func _remove_save_button_from_toolbar():
 	if !save_level_preview_button:
 		return
 	
-	#remove_control_from_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
+	remove_control_from_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
 
 func _on_save_preview_button_pressed():
 	if !current_level:
+		print('no current level')
 		return
 	
 	if !current_data:
+		print('no current data')
 		return
 	
-	var texture = EditorInterface.get_editor_viewport_3d(0).get_texture().get_image()
+	
+	var texture
+	if current_level is Level3D:
+		texture = EditorInterface.get_editor_viewport_3d(0).get_texture().get_image()
+	
+	if current_level is Level2D:
+		texture = EditorInterface.get_editor_viewport_2d().get_texture().get_image()
+	
 	var save_path = 'res://addons/Ds_levels/preview_cache/' + current_data.label + '_3d_prev_cache.png'
 	texture.save_png(save_path)
 	current_data.preview_path = save_path
+	LevelDataStorage.edit_data(LevelDataStorage.get_index_by_label(current_data.label), current_data)
+	LevelDataStorage.save_at_settings_path()
 
 func _on_scene_changed(scene):
-	return
+	current_level = null
+	current_data = null
+	_remove_save_button_from_toolbar()
 	
 	if scene is Level2D:
 		current_level = scene
+		_add_save_button_to_toolbar()
 		
 	if scene is Level3D:
 		current_level = scene
-		
+		_add_save_button_to_toolbar()
 	
-	current_level = null
-	current_data = null
+	if !current_level:
+		return
+	
+	var path = current_level.scene_file_path
+	
+	print(path)
+	
+	current_data = LevelDataStorage.get_data_by_path(path)
+	print(current_data)
 
 func _on_scene_saved(path):
 	pass

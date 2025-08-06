@@ -13,13 +13,15 @@ signal saved()
 @onready var loading_screen_label_dropdown: OptionButton = %loading_screen_label_dropdown
 @onready var level_hidden_input: CheckBox = %level_hidden_input
 @onready var set_default_button: Button = %set_default_button
+@onready var level_preview_viewer: VBoxContainer = %level_preview_viewer
 
-var index:int = -1
+var index:int
 var data:LevelData
 
 
 func _ready() -> void:
-	set_index(-1)
+	set_index(0)
+	LevelManagerInterface.level_data_inspector = self
 	
 func set_index(idx:int):
 	index = idx
@@ -76,6 +78,9 @@ func _on_set_default_button_pressed() -> void:
 func _populate_inspector():
 	if !data:
 		return
+	print(data.label)
+	
+	level_preview_viewer.path = data.preview_path
 	
 	level_label_input.text = data.label
 	level_description_input.text = data.description

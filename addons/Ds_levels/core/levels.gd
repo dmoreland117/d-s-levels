@@ -23,7 +23,7 @@ static func load_level_in_background():
 static func change_to_level(level:LevelData, spawn:String = 'default', args:Dictionary = {}):
 	var transition_speed_scale:float = args.get(ARG_TRANSITION_SPEED, 1.0)
 	
-	_current_transition = TransitionUtils.create_transition_instance(0, transition_speed_scale)
+	_current_transition = TransitionUtils.create_transition_instance(1, transition_speed_scale)
 	_add_transition_to_container()
 	if _current_level:
 		await _transition_out().show_next_level

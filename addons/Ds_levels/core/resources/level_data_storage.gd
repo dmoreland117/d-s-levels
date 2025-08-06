@@ -73,6 +73,13 @@ static func get_data_by_label(label:String) -> LevelData:
 	
 	return
 
+static func get_data_by_path(path:String) -> LevelData:
+	for data in level_datas:
+		if data.level_path == path:
+			return data
+	
+	return
+
 static func get_data_by_index(index:int) -> LevelData:
 	if !level_datas:
 		return
@@ -81,7 +88,17 @@ static func get_data_by_index(index:int) -> LevelData:
 		return
 	
 	return level_datas[index]
+
+static func get_index_by_label(label):
+	var i = 0
+	for data in level_datas:
+		if data.label == label:
+			return i
+		
+		i += 1
 	
+	return 0
+
 static func has_data(label:String) -> bool:
 	if !level_datas:
 		return false

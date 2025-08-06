@@ -97,7 +97,7 @@ func _on_refresh_levels_button_pressed() -> void:
 
 func _on_levels_table_edit_pressed(index: int) -> void:
 	edit_pressed.emit(index)
-
+		
 func _on_levels_table_open_pressed(index: int) -> void:
 	if !LevelDataStorage.is_storage_loaded():
 		PopupUtils.show_error_popup('Could not load LevelDataStorage from the provided path\n%s' % LevelManagerPlugin.get_levels_storage_path())
