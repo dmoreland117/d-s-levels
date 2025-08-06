@@ -1,1 +1,1 @@
-{ "data": [{"label": "test", "path": "res://addons/Ds_levels/level_transitions/default_transition.tscn"}, {"label": "test2", "path": "res://addons/Ds_levels/level_transitions/default_transition_2.tscn"}] }
+{ "data": [{"label": "fade", "path": "res://addons/Ds_levels/level_transitions/default_transition.tscn"}, {"label": "wipe_right", "path": "res://addons/Ds_levels/level_transitions/default_transition_2.tscn"}] }

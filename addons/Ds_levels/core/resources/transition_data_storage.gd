@@ -20,7 +20,7 @@ static func remove_data(index:int):
 static func edit_data(index:int, data:Dictionary):
 	transition_infos[index] = data
 
-static func get_index_by_label(label:Label):
+static func get_index_by_label(label:String):
 	return StorageUtils.get_array_index_of_dict_by_key_value(
 		transition_infos, 
 		'label', 

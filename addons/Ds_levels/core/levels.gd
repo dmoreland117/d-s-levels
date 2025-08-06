@@ -2,6 +2,7 @@ class_name Levels
 ## A static class that can change and unload [Levels]
 
 
+const ARG_TRANSITION_NAME = 'transition_name'
 const ARG_TRANSITION_SPEED = 'transition_speed'
 
 static var _loading_screen_container:CanvasLayer
@@ -22,8 +23,9 @@ static func load_level_in_background():
 ## Unloads any current levels and changes to the provided [level] at [spawn] with [args].
 static func change_to_level(level:LevelData, spawn:String = 'default', args:Dictionary = {}):
 	var transition_speed_scale:float = args.get(ARG_TRANSITION_SPEED, 1.0)
+	var transition_name:String = args.get(ARG_TRANSITION_NAME, 'fade')
 	
-	_current_transition = TransitionUtils.create_transition_instance(1, transition_speed_scale)
+	_current_transition = TransitionUtils.create_transition_instance(TransitionDataStorage.get_index_by_label(transition_name), transition_speed_scale)
 	_add_transition_to_container()
 	if _current_level:
 		await _transition_out().show_next_level
