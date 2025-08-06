@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://blgj6sbjcm802"]
+[gd_scene load_steps=6 format=3 uid="uid://bimuuihgkxkqe"]
 
-[ext_resource type="Script" uid="uid://8w7rms5au17k" path="res://addons/Ds_levels/level_transitions/default_transition_2.gd" id="1_didmu"]
+[ext_resource type="Script" path="res://addons/Ds_levels/level_transitions/wipe_right_transition.gd" id="1_hs8lt"]
 
 [sub_resource type="Animation" id="Animation_2kry4"]
 length = 0.001
@@ -27,6 +27,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_didmu"]
+resource_name = "anim_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1280, 720), Vector2(0, 720)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1280, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_o2var"]
@@ -71,34 +99,6 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_didmu"]
-resource_name = "anim_in"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1280, 720), Vector2(0, 720)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1280, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0wrha"]
 _data = {
 &"RESET": SubResource("Animation_2kry4"),
@@ -113,7 +113,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_didmu")
+script = ExtResource("1_hs8lt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -121,6 +121,8 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1280.0
+offset_right = -1280.0
 grow_horizontal = 0
 grow_vertical = 2
 color = Color(0, 0, 0, 1)

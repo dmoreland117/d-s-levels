@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpbreop72mmm"]
+[gd_scene load_steps=5 format=3 uid="uid://wab4nsribfud"]
 
-[ext_resource type="Script" uid="uid://baoum7ks0p6kd" path="res://addons/Ds_levels/level_transitions/default_transition.gd" id="1_2kry4"]
+[ext_resource type="Script" path="res://addons/Ds_levels/level_transitions/fade_transition.gd" id="1_un57n"]
 
 [sub_resource type="Animation" id="Animation_2kry4"]
 length = 0.001
@@ -109,7 +109,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2kry4")
+script = ExtResource("1_un57n")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
