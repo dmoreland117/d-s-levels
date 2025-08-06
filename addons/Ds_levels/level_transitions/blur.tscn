@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://da7gwaxkahrlk"]
 
 [ext_resource type="Script" uid="uid://c2wveil34mlpv" path="res://addons/Ds_levels/level_transitions/blur.gd" id="1_u6rfw"]
-[ext_resource type="Shader" path="res://addons/Ds_levels/level_transitions/blure.gdshader" id="3_3r2sg"]
+[ext_resource type="Shader" uid="uid://b33uwns40iaaa" path="res://addons/Ds_levels/level_transitions/blure.gdshader" id="3_3r2sg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_srjvg"]
 shader = ExtResource("3_3r2sg")

@@ -172,7 +172,6 @@ static func _add_transition_to_container():
 	_transition_container.add_child(_current_transition)
 	
 static func _free_current_transition():
-	print(_current_transition)
 	for child in _transition_container.get_children():
 		_transition_container.remove_child(child)
 		child.queue_free()

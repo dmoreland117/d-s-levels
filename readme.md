@@ -20,13 +20,11 @@ Loading Screen Manager
 
 ## Ussage
 1. [Install the Plugin](https://github.com/dmoreland117/d-s-levels/wiki/Installation-Guide)
-2. Go to the levels tab at the top of the editor (you will get some storage not found errors)
-3. in the levels and loading screen tabs press the select storage button to choose the path the level and loading screen data will be stored in.
-4. Add some levels and loading screens
-5. in your game scene add a LevelContainer2D or 3D
-6. Run the game and the first level in the list should load or to change to a specific level call:
+2. Add some levels and loading screens
+3. in your game scene add a LevelContainer2D or 3D
+4. Run the game and the first level in the list should load or to change to a specific level call:
     ```gdscript
-    Levels.change_to_level_name('Name', 'spawn_label')
+    Levels.change_to_level_name('Name', 'spawn_label', {'transition_name: 'fade'})
     ```
 
 ## TODO
