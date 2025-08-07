@@ -81,7 +81,7 @@ func get_load_path(label:String) -> String:
 	
 	return loading_levels.get(label, '')
 
-func _set_level_change_data(level, data:LevelData, spawn:String):
+func _set_level_change_data(level, data:LevelData, spawn:String, args:Dictionary):
 	var change_data = LevelChangeData.new()
 	change_data.change_args = {}
 	change_data.level_data = data
@@ -105,7 +105,8 @@ func _level_loaded(label:String):
 	_set_level_change_data(
 		level_instance, 
 		level_datas[label], 
-		level_spawns[label]
+		level_spawns[label],
+		{}
 	)
 	
 	level_datas.erase(label)
