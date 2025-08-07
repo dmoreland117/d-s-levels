@@ -5,6 +5,7 @@ const ERROR_POPUP = preload("res://addons/Ds_levels/ui/popups/error_popup.tscn")
 const LEVEL_STORAGE_PATH_SET_DIALOG = preload("res://addons/Ds_levels/ui/popups/level_storage_path_set_dialog.tscn")
 const REMOVE_LEVEL_POPUP = preload("res://addons/Ds_levels/ui/popups/remove_level_popup.tscn")
 const LOADING_SCREEN_STORAGE_PATH_SET_POPUP = preload("res://addons/Ds_levels/ui/popups/loading_screen_storage_path_set_popup.tscn")
+const LOADING_SCREEN_VIEWER_POPUP = preload("res://addons/Ds_levels/ui/popups/loading_screen_viewer_popup.tscn")
 
 
 static func show_select_storage_path_popup() -> Popup:
@@ -38,6 +39,17 @@ static func show_remove_level_popup(index:int) -> Popup:
 	instance.index = index
 	popup.add_child(instance)
 	
+	EditorInterface.popup_dialog_centered(popup)
+	return popup
+
+static func show_loading_screen_preview_popup(data:LevelData) -> Popup:
+	var instance = LOADING_SCREEN_VIEWER_POPUP.instantiate()
+	var popup = PopupPanel.new()
+	popup.borderless = false
+	popup.title = 'Loading Screen preview'
+	popup.add_child(instance)
+	popup.unresizable = false
+	instance.data = data
 	EditorInterface.popup_dialog_centered(popup)
 	return popup
 

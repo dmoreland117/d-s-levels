@@ -205,7 +205,13 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 
+[node name="preview_loading_screen_button" type="Button" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Preview Loading Screen"
+
 [connection signal="pressed" from="HBoxContainer/save_button" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/reset_button" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/clear_button" to="." method="_on_clear_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/set_default_button" to="." method="_on_set_default_button_pressed"]
+[connection signal="pressed" from="Panel2/MarginContainer/ScrollContainer/VBoxContainer/preview_loading_screen_button" to="." method="_on_preview_loading_screen_button_pressed"]
