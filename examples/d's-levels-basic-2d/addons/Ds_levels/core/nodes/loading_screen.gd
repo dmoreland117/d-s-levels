@@ -1,3 +1,4 @@
+@tool
 class_name LoadingScreen
 extends Control
 
@@ -15,6 +16,10 @@ func _ready() -> void:
 	if level_data:
 		_set_up_labels(level_data)
 
+func update_progress(progress:int):
+	_progress_updated(progress)
+	progress_updated.emit(progress)
+
 func _set_up_background(bkg:Texture):
 	pass
 
@@ -25,7 +30,7 @@ func _progress_updated(progress:int):
 	pass
 
 func _process(delta: float) -> void:
-	if !level_data:
+	if !level_data or Engine.is_editor_hint():
 		return
 	
 	var loader = Levels.get_loader()

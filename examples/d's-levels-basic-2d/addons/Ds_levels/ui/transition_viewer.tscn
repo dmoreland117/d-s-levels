@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://udt5hld3sbae"]
 
 [ext_resource type="Script" uid="uid://rq77lfrowu85" path="res://addons/Ds_levels/ui/transition_viewer.gd" id="1_o67hn"]
-[ext_resource type="PackedScene" uid="uid://cpbreop72mmm" path="res://addons/Ds_levels/level_transitions/default_transition.tscn" id="2_emcv2"]
+[ext_resource type="PackedScene" uid="uid://cpbreop72mmm" path="res://addons/Ds_levels/level_transitions/fade_transition.tscn" id="2_emcv2"]
 [ext_resource type="Texture2D" uid="uid://b0ijaryps127w" path="res://icon.png" id="2_ovvo3"]
 
 [node name="transition_viewer" type="Control"]
