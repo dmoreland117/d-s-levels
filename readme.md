@@ -16,7 +16,7 @@ Loading Screen Manager
 * Loading Screen management UI (Working).
 * In game loading of levels via the Levels Singleton (Working).
 * Can Automatically show Loading Screens while chaanging Levels (Working).
-* Level Transitions (Partly Working).
+* Level Transitions (Working).
 
 ## Ussage
 1. [Install the Plugin](https://github.com/dmoreland117/d-s-levels/wiki/Installation-Guide)
