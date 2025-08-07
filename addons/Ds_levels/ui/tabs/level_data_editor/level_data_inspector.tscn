@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqvi8fbpi6c3m" path="res://addons/Ds_levels/ui/tabs/level_data_editor/level_data_inspector.gd" id="1_6lqfa"]
 [ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_pickers/file_picker.tscn" id="1_gbbwo"]
-[ext_resource type="PackedScene" uid="uid://dyyh6xdbtv64o" path="res://addons/Ds_levels/ui/level_preview_viewer.tscn" id="2_6fvj7"]
+[ext_resource type="PackedScene" uid="uid://dyyh6xdbtv64o" path="res://addons/Ds_levels/ui/tabs/level_data_editor/level_preview_viewer.tscn" id="2_6fvj7"]
 [ext_resource type="PackedScene" uid="uid://c1n1eoykc148g" path="res://addons/Ds_levels/ui/file_pickers/texture_file_picker.tscn" id="2_6lqfa"]
 
 [node name="level_data_inspector" type="VBoxContainer"]

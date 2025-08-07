@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dyyh6xdbtv64o"]
 
-[ext_resource type="Script" uid="uid://k5arntea4huk" path="res://addons/Ds_levels/ui/level_preview_viewer.gd" id="1_n8v61"]
+[ext_resource type="Script" uid="uid://k5arntea4huk" path="res://addons/Ds_levels/ui/tabs/level_data_editor/level_preview_viewer.gd" id="1_n8v61"]
 [ext_resource type="Texture2D" uid="uid://bm6jll7ymk5bq" path="res://addons/Ds_levels/icon.svg" id="2_n8v61"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8v61"]
