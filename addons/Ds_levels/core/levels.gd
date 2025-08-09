@@ -7,6 +7,8 @@ const ARG_TRANSITION_SPEED = 'transition_speed'
 const ARG_LOADING_SCREEN_NAME = 'loading_screen_name'
 const ARG_SHOW_LOADING_SCREEN = 'show_loading_screen'
 
+const DEFAULT_SPAWN_POINT = 'default'
+
 static var _loading_screen_container:CanvasLayer
 static var _loading_screen:LoadingScreen
 

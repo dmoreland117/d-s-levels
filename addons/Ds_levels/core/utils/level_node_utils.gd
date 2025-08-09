@@ -30,6 +30,8 @@ static func get_spawn_points(level:Node) -> Array:
 
 static func get_current_spawn_point(spawn_points:Array, spawn_point:String) -> Node:
 	for point in spawn_points:
+		if point.default and spawn_point == Levels.DEFAULT_SPAWN_POINT:
+			return point
 		if point.name == spawn_point:
 			return point
 	
