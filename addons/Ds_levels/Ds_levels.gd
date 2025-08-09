@@ -123,14 +123,12 @@ func _on_save_preview_button_pressed():
 	if !current_data:
 		return
 	
-	
 	var texture
 	if current_level is Level3D:
 		texture = EditorInterface.get_editor_viewport_3d(0).get_texture().get_image()
 	
 	if current_level is Level2D:
 		texture = EditorInterface.get_editor_viewport_2d().get_texture().get_image()
-	
 	
 	var save_path = 'res://addons/Ds_levels/preview_cache/' + current_data.label + '_3d_prev_cache.png'
 	
