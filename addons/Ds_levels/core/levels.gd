@@ -89,6 +89,8 @@ static func get_loader() -> LevelLoader:
 	return _loader
 
 static func _set_level_container(container:Node):
+	EngineDebugger.register_message_capture('level_command', _on_debug_command)
+
 	_loader = LevelLoader.new()
 	_loader.loaded.connect(_on_level_loaded)
 	
@@ -115,6 +117,7 @@ static func _on_level_loaded(label:String, level:Node):
 	_hide_loading_screen()
 	
 	_level_container.set_level(level)
+	EngineDebugger.send_message('debug_command:set_level', [label])
 	if _current_transition:
 		await _transition_in().transition_done
 	
@@ -190,3 +193,12 @@ static func _free_current_transition():
 		child.queue_free()
 	
 	_current_transition = null
+
+static func _on_debug_command(message:String, data) -> bool:
+	if message == 'reload':
+		if _current_level:
+			change_to_level(_current_level.get_level_data(), _current_level.get_level_change_data().spawn_point, _current_level.get_level_change_data().change_args)
+		return true
+	if message == 'go_start':
+		change_to_start_level()
+	return false

@@ -16,10 +16,13 @@ const LEVEL_MANAGER_UI = preload("res://addons/Ds_levels/ui/main_ui.tscn")
 var main_screen_ui:Control
 var current_level:Node
 var save_level_preview_button:Button
+var debugger:DsDebugger
 
 var current_data:LevelData
 
 func _enter_tree() -> void:
+	debugger = DsDebugger.new()
+	add_debugger_plugin(debugger)
 	_add_resource_paths_to_project_settings()
 	_add_main_screen_ui()
 	

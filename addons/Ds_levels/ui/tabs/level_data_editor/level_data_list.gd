@@ -10,9 +10,18 @@ signal edit_pressed(index:int)
 @onready var select_storage_path_button: Button = %select_storage_path_button
 @onready var new_level_label_input: LineEdit = %new_level_label_input
 @onready var new_level_path_picker: LineFilePicker = %new_level_path_picker
+@onready var reload_level_button: Button = %reload_level_button
+
+var debugging:bool = false:
+	set(val):
+		debugging = val
+		
+		_populate_levels_list()
 
 
 func _ready() -> void:
+	EngineDebugger.register_message_capture('level_ui_command', _on_level_command)
+	
 	if !LevelDataStorage.load_from_settings_path():
 		return
 	
@@ -30,6 +39,8 @@ func _add_icons():
 	
 func _populate_levels_list():
 	levels_table.clear_table()
+	
+	reload_level_button.disabled = !debugging
 	
 	if !levels_table:
 		return
@@ -104,3 +115,8 @@ func _on_levels_table_open_pressed(index: int) -> void:
 	
 	var data = LevelDataStorage.get_data_by_index(index)
 	EditorInterface.open_scene_from_path(data.level_path)
+
+func _on_level_command(message:String, data:Array):
+	print(message, ": ", data[0])
+	if message == 'set_debug':
+		debugging = data[0]
