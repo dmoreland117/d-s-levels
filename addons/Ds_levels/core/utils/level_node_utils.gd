@@ -74,3 +74,6 @@ static func has_world_environment(level) -> bool:
 			return true
 	
 	return false
+
+static func send_dbg_change_data(change_data:LevelChangeData):
+	EngineDebugger.send_message('debug_command:set_change_data', [change_data.spawn_point, change_data.change_args])
