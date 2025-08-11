@@ -92,6 +92,7 @@ static func _set_level_container(container:Node):
 	EngineDebugger.register_message_capture('level_command', _on_debug_command)
 
 	_loader = LevelLoader.new()
+	_loader.name = 'Loader'
 	_loader.loaded.connect(_on_level_loaded)
 	
 	_level_container = container
@@ -128,6 +129,7 @@ static func _add_loading_screen_container():
 		return
 	
 	_loading_screen_container = CanvasLayer.new()
+	_loading_screen_container.name = 'Loading Screens'
 	_level_container.add_child(_loading_screen_container)
 
 static func _show_loading_screen(data:LevelData, label:String = ''):
@@ -159,7 +161,7 @@ static func _add_transition_container():
 		return
 	
 	var c = CanvasLayer.new()
-	c.name = 'transitions'
+	c.name = 'Transitions'
 	_transition_container = c
 	
 	_level_container.add_child(c)
