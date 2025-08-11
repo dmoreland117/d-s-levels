@@ -27,6 +27,15 @@ func _capture(message, data, session_id):
 		if !data[0].is_empty():
 			get_session(session_id).send_message('level_ui_command:set_debug', [true])
 		return true
+	if message == "debug_command:update_load_level":
+		debug_ui.set_loading_level_name(data[0])
+		return true
+	if message == "debug_command:update_load_progress":
+		debug_ui.set_load_progress(data[0])
+		return true
+	if message == "debug_command:set_change_data":
+		debug_ui.set_change_data(data[0], data[1])
+		return true
 	return false
 
 func reload_current_level():

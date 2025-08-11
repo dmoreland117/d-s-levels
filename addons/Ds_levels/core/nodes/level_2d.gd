@@ -43,6 +43,7 @@ func _ready() -> void:
 		if ! _set_up_player():
 			printerr('Faild to create Player')
 	
+	LevelNodeUtils.send_dbg_change_data(level_change_data)
 	level_start.emit(level_change_data)
 
 ## Set the [Environment] for the Level's [WorldEnvironment]

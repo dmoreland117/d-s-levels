@@ -11,7 +11,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -43.0
 offset_top = -220.0
+offset_right = 795.0
+offset_bottom = 467.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_4vwfx")
@@ -32,7 +35,22 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_4vwfx")
 
 [node name="Label" type="Label" parent="HBoxContainer2/loaded_level_section/PanelContainer"]
 layout_mode = 2
-text = "Loaded Level"
+text = "Loaded Level Data"
+horizontal_alignment = 1
+
+[node name="level_change_data_section2" type="VBoxContainer" parent="HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer2/level_change_data_section2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4vwfx")
+
+[node name="Label" type="Label" parent="HBoxContainer2/level_change_data_section2/PanelContainer"]
+layout_mode = 2
+text = "Loaded Level Change Data"
 horizontal_alignment = 1
 
 [node name="loading_levels_section" type="VBoxContainer" parent="HBoxContainer2"]
@@ -62,11 +80,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="HBoxContainer2/loading_levels_section/PanelContainer2/loading_levels_list"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2/loading_levels_section/PanelContainer2/loading_levels_list"]
 layout_mode = 2
-size_flags_vertical = 6
-text = "Nothing Loading"
-horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer2/loading_levels_section/PanelContainer2/loading_levels_list/HBoxContainer"]
+layout_mode = 2
+text = "Level Name: "
+
+[node name="level_name_label" type="Label" parent="HBoxContainer2/loading_levels_section/PanelContainer2/loading_levels_list/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "None"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer2/loading_levels_section/PanelContainer2/loading_levels_list"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer2/loading_levels_section/PanelContainer2/loading_levels_list/HBoxContainer2"]
+layout_mode = 2
+text = "Level Name: "
+
+[node name="level_progress_label" type="Label" parent="HBoxContainer2/loading_levels_section/PanelContainer2/loading_levels_list/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "None"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

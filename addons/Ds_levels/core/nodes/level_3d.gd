@@ -22,6 +22,13 @@ func _ready() -> void:
 		printerr('Faild to create WorldEnvironment')
 		return
 	
+	update_configuration_warnings()
+	
+	child_entered_tree.connect(
+		func(node):
+			update_configuration_warnings()
+	)
+	
 	if Engine.is_editor_hint():
 		_set_current_spawn_point()
 		_set_up_player()
@@ -35,6 +42,7 @@ func _ready() -> void:
 		if ! _set_up_player():
 			printerr('Faild to create Player')
 	
+	LevelNodeUtils.send_dbg_change_data(level_change_data)
 	level_start.emit(level_change_data)
 
 ## Set the [Environment] for the Level's [WorldEnvironment]
@@ -135,3 +143,9 @@ func _set_up_player() -> bool:
 	add_child(player_instance)
 	
 	return true
+
+func _get_configuration_warnings() -> PackedStringArray:
+	if get_spawn_points().is_empty():
+		return ['SpawnPoint2D is required for this Node to work proporly']
+	
+	return []
