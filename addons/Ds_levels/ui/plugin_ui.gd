@@ -42,6 +42,7 @@ func _on_reload_button_pressed() -> void:
 	reload_level_pressed.emit()
 
 func set_change_data(spawn_point:String, args:Dictionary):
+	level_change_data_section_2.remove_child(level_change_data_section_2.get_child(1))
 	var l = Label.new()
 	l.text = str(args)
 	level_change_data_section_2.add_child(l)
