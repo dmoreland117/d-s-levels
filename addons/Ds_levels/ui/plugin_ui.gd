@@ -23,11 +23,6 @@ func _ready() -> void:
 	loaded_level_inspector.edit(LevelData.new())
 	loaded_level_section.add_child(loaded_level_inspector)
 	
-	level_change_data_inspector = EditorInspector.new()
-	level_change_data_inspector.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	level_change_data_inspector.edit(LevelChangeData.new())
-	level_change_data_section_2.add_child(loaded_level_inspector)
-
 func set_loading_level_name(label:String):
 	level_name_label.text = label
 

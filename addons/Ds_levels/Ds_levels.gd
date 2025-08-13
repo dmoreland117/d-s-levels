@@ -118,6 +118,7 @@ func _remove_save_button_from_toolbar():
 		return
 	
 	remove_control_from_container(EditorPlugin.CONTAINER_CANVAS_EDITOR_MENU, save_level_preview_button)
+	remove_control_from_container(EditorPlugin.CONTAINER_SPATIAL_EDITOR_MENU, save_level_preview_button)
 
 func _on_save_preview_button_pressed():
 	if !current_level:
