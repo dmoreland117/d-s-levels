@@ -81,6 +81,7 @@ flat = true
 
 [node name="reload_level_button" type="Button" parent="HBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 disabled = true
 text = "Reload level"
