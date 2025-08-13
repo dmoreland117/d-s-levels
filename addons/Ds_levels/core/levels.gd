@@ -4,12 +4,17 @@ class_name Levels
 
 const ARG_TRANSITION_NAME = 'transition_name'
 const ARG_TRANSITION_SPEED = 'transition_speed'
+const ARG_LOADING_SCREEN_NAME = 'loading_screen_name'
+const ARG_SHOW_LOADING_SCREEN = 'show_loading_screen'
+
+const DEFAULT_SPAWN_POINT = 'default'
 
 static var _loading_screen_container:CanvasLayer
 static var _loading_screen:LoadingScreen
 
 static var _level_container:Node
 static var _current_level:Node
+static var _current_args:Dictionary
 
 static var _transition_container:CanvasLayer
 static var _current_transition:LevelTransition
@@ -22,8 +27,12 @@ static func load_level_in_background():
 
 ## Unloads any current levels and changes to the provided [level] at [spawn] with [args].
 static func change_to_level(level:LevelData, spawn:String = 'default', args:Dictionary = {}):
+	_current_args = args
+	
 	var transition_speed_scale:float = args.get(ARG_TRANSITION_SPEED, 1.0)
 	var transition_name:String = args.get(ARG_TRANSITION_NAME, 'fade')
+	var loading_screen_name:String = args.get(ARG_LOADING_SCREEN_NAME, '')
+	var show_loading_screen:bool = args.get(ARG_SHOW_LOADING_SCREEN, false)
 	
 	_current_transition = TransitionUtils.create_transition_instance(TransitionDataStorage.get_index_by_label(transition_name), transition_speed_scale)
 	_add_transition_to_container()
@@ -37,9 +46,9 @@ static func change_to_level(level:LevelData, spawn:String = 'default', args:Dict
 	
 	_loader.load_from_data(level, spawn)
 	
-	if level.show_loading_screen:
+	if level.show_loading_screen or show_loading_screen:
 		_transition_in()
-		_show_loading_screen(level)
+		_show_loading_screen(level, loading_screen_name)
 
 ## Unloads the current level and loads the start level set in the Levels tab
 ## at [spawn] with [args].
@@ -80,7 +89,10 @@ static func get_loader() -> LevelLoader:
 	return _loader
 
 static func _set_level_container(container:Node):
+	EngineDebugger.register_message_capture('level_command', _on_debug_command)
+
 	_loader = LevelLoader.new()
+	_loader.name = 'Loader'
 	_loader.loaded.connect(_on_level_loaded)
 	
 	_level_container = container
@@ -98,6 +110,7 @@ static func _on_level_loaded(label:String, level:Node):
 	var data = level.get_level_data()
 	
 	_current_level = level
+	_current_level.level_change_data.change_args = _current_args
 	
 	if _current_transition and _loading_screen:
 		await _transition_out().transition_done
@@ -105,6 +118,7 @@ static func _on_level_loaded(label:String, level:Node):
 	_hide_loading_screen()
 	
 	_level_container.set_level(level)
+	EngineDebugger.send_message('debug_command:set_level', [label])
 	if _current_transition:
 		await _transition_in().transition_done
 	
@@ -115,13 +129,17 @@ static func _add_loading_screen_container():
 		return
 	
 	_loading_screen_container = CanvasLayer.new()
+	_loading_screen_container.name = 'Loading Screens'
 	_level_container.add_child(_loading_screen_container)
 
-static func _show_loading_screen(data:LevelData):
+static func _show_loading_screen(data:LevelData, label:String = ''):
 	if !_loading_screen_container or !_level_container:
 		return
 	
 	var loading_screen_path = LoadingScreenDataStorage.get_data_by_label(data.loading_screen_name).get('path')
+	if !label.is_empty():
+		loading_screen_path = LoadingScreenDataStorage.get_data_by_label(label).get('path')
+	
 	if !loading_screen_path:
 		return
 	
@@ -143,7 +161,7 @@ static func _add_transition_container():
 		return
 	
 	var c = CanvasLayer.new()
-	c.name = 'transitions'
+	c.name = 'Transitions'
 	_transition_container = c
 	
 	_level_container.add_child(c)
@@ -177,3 +195,12 @@ static func _free_current_transition():
 		child.queue_free()
 	
 	_current_transition = null
+
+static func _on_debug_command(message:String, data) -> bool:
+	if message == 'reload':
+		if _current_level:
+			change_to_level(_current_level.get_level_data(), _current_level.get_level_change_data().spawn_point, _current_level.get_level_change_data().change_args)
+		return true
+	if message == 'go_start':
+		change_to_start_level()
+	return false

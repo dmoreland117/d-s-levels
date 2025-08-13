@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqs0k3t3lskoy"]
+
+[ext_resource type="Script" uid="uid://cgpffve4eakry" path="res://addons/Ds_levels/ui/tables/table_header.gd" id="1_bw2fh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bnjo"]
+bg_color = Color(0, 0, 0, 0.423529)
+
+[node name="table_header" type="PanelContainer"]
+offset_right = 631.0
+offset_bottom = 23.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2bnjo")
+script = ExtResource("1_bw2fh")
+columns = Array[String](["Label", "Path"])
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="spacer" type="Control" parent="HBoxContainer"]
+layout_mode = 2

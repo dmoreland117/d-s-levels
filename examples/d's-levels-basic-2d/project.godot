@@ -17,8 +17,9 @@ config/icon="res://icon.svg"
 
 [ds_levels]
 
-directories/level_storage_path="res://level_storage.json"
-directories/loading_screen_storage_path="res://loading_screen_storage.json"
+directories/level_storage_path="res://addons/Ds_levels/default_data/level_storage.json"
+directories/loading_screen_storage_path="res://addons/Ds_levels/default_data/loading_screen_storage.json"
+directories/transition_storage_path="res://addons/Ds_levels/default_data/transition_storage.json"
 
 [editor_plugins]
 

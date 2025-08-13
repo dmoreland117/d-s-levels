@@ -16,10 +16,13 @@ const LEVEL_MANAGER_UI = preload("res://addons/Ds_levels/ui/main_ui.tscn")
 var main_screen_ui:Control
 var current_level:Node
 var save_level_preview_button:Button
+var debugger:DsDebugger
 
 var current_data:LevelData
 
 func _enter_tree() -> void:
+	debugger = DsDebugger.new()
+	add_debugger_plugin(debugger)
 	_add_resource_paths_to_project_settings()
 	_add_main_screen_ui()
 	
@@ -123,7 +126,6 @@ func _on_save_preview_button_pressed():
 	if !current_data:
 		return
 	
-	
 	var texture
 	if current_level is Level3D:
 		texture = EditorInterface.get_editor_viewport_3d(0).get_texture().get_image()
@@ -132,6 +134,11 @@ func _on_save_preview_button_pressed():
 		texture = EditorInterface.get_editor_viewport_2d().get_texture().get_image()
 	
 	var save_path = 'res://addons/Ds_levels/preview_cache/' + current_data.label + '_3d_prev_cache.png'
+	
+	var abs_path = ProjectSettings.globalize_path(save_path)
+	if !DirAccess.dir_exists_absolute(abs_path):
+		DirAccess.make_dir_absolute(ProjectSettings.globalize_path('res://addons/Ds_levels/preview_cache'))
+	
 	texture.save_png(save_path)
 	current_data.preview_path = save_path
 	LevelDataStorage.edit_data(LevelDataStorage.get_index_by_label(current_data.label), current_data)

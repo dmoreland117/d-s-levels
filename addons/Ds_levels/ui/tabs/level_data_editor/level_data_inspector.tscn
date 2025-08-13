@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dqvi8fbpi6c3m" path="res://addons/Ds_levels/ui/tabs/level_data_editor/level_data_inspector.gd" id="1_6lqfa"]
 [ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_pickers/file_picker.tscn" id="1_gbbwo"]
-[ext_resource type="PackedScene" uid="uid://dyyh6xdbtv64o" path="res://addons/Ds_levels/ui/level_preview_viewer.tscn" id="2_6fvj7"]
+[ext_resource type="PackedScene" uid="uid://dyyh6xdbtv64o" path="res://addons/Ds_levels/ui/tabs/level_data_editor/level_preview_viewer.tscn" id="2_6fvj7"]
 [ext_resource type="PackedScene" uid="uid://c1n1eoykc148g" path="res://addons/Ds_levels/ui/file_pickers/texture_file_picker.tscn" id="2_6lqfa"]
 
 [node name="level_data_inspector" type="VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 offset_right = 300.0
-offset_bottom = 324.0
+offset_bottom = 527.0
 script = ExtResource("1_6lqfa")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -181,11 +181,14 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-item_count = 2
+item_count = 3
 popup/item_0/text = "loading_screen_1"
 popup/item_0/id = 0
 popup/item_1/text = "loading_screen_2"
 popup/item_1/id = 1
+popup/item_2/text = "None"
+popup/item_2/id = 20
+popup/item_2/separator = true
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -205,7 +208,13 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 
+[node name="preview_loading_screen_button" type="Button" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Preview Loading Screen"
+
 [connection signal="pressed" from="HBoxContainer/save_button" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/reset_button" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/clear_button" to="." method="_on_clear_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/set_default_button" to="." method="_on_set_default_button_pressed"]
+[connection signal="pressed" from="Panel2/MarginContainer/ScrollContainer/VBoxContainer/preview_loading_screen_button" to="." method="_on_preview_loading_screen_button_pressed"]

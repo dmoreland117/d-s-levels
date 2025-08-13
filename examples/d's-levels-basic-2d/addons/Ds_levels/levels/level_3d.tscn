@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://qre2hnoxmkdm"]
+
+[ext_resource type="Script" uid="uid://cxelpq8jvqlir" path="res://addons/Ds_levels/core/nodes/level_3d.gd" id="1_jra2p"]
+[ext_resource type="Script" uid="uid://cppk6uqm33g3w" path="res://addons/Ds_levels/core/nodes/spawn_point_3d.gd" id="2_pe4nw"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_jra2p"]
+
+[sub_resource type="Sky" id="Sky_pe4nw"]
+sky_material = SubResource("PhysicalSkyMaterial_jra2p")
+
+[sub_resource type="Environment" id="Environment_ajesh"]
+background_mode = 2
+sky = SubResource("Sky_pe4nw")
+tonemap_mode = 2
+
+[node name="Level3D" type="Node3D"]
+script = ExtResource("1_jra2p")
+environment = SubResource("Environment_ajesh")
+metadata/_custom_type_script = "uid://cxelpq8jvqlir"
+
+[node name="SpawnPoint3D" type="Node3D" parent="."]
+script = ExtResource("2_pe4nw")
+metadata/_custom_type_script = "uid://cppk6uqm33g3w"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjf0xtn0a7mt5"]
 
 [ext_resource type="Script" uid="uid://dqorde7uxjw8u" path="res://addons/Ds_levels/ui/popups/loading_screen_storage_path_set_popup.gd" id="1_13re1"]
-[ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_picker.tscn" id="1_8421b"]
+[ext_resource type="PackedScene" uid="uid://dvd6im2at4f60" path="res://addons/Ds_levels/ui/file_pickers/file_picker.tscn" id="1_8421b"]
 
 [node name="loading_screen_storage_path_set_dialog" type="VBoxContainer"]
 offset_right = 547.0
@@ -12,7 +12,7 @@ script = ExtResource("1_13re1")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
-start_path = "res://level_data/loading_screen_storage.json"
+start_path = "res://addons/Ds_levels/default_data/loading_screen_storage.json"
 file_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

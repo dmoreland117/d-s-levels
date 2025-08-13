@@ -31,15 +31,11 @@ func _ready() -> void:
 		printerr('Level_change_args is null')
 		return
 	
+	if _set_current_spawn_point():
+		if ! _set_up_player():
+			printerr('Faild to create Player')
+	
 	level_start.emit(level_change_data)
-	
-	if !_set_current_spawn_point():
-		printerr('Failed to load current spawn point')
-		return
-	
-	if ! _set_up_player():
-		printerr('Faild to create Player')
-		return
 
 ## Set the [Environment] for the Level's [WorldEnvironment]
 func set_environment(env:Environment):
