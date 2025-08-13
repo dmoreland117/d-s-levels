@@ -1,0 +1,121 @@
+[gd_scene load_steps=3 format=3 uid="uid://bolgg58a2roi7"]
+
+[ext_resource type="Script" uid="uid://cy5de1l7k05el" path="res://addons/Ds_levels/ui/plugin_ui.gd" id="1_4vwfx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vwfx"]
+bg_color = Color(0, 0, 0, 0.694118)
+
+[node name="D\'s Levelss" type="VBoxContainer"]
+custom_minimum_size = Vector2(0, 220)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -220.0
+offset_right = 795.0
+offset_bottom = 467.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_4vwfx")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="loaded_level_section" type="VBoxContainer" parent="HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer2/loaded_level_section"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4vwfx")
+
+[node name="Label" type="Label" parent="HBoxContainer2/loaded_level_section/PanelContainer"]
+layout_mode = 2
+text = "Loaded Level Data"
+horizontal_alignment = 1
+
+[node name="level_change_data_section2" type="VBoxContainer" parent="HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer2/level_change_data_section2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4vwfx")
+
+[node name="Label" type="Label" parent="HBoxContainer2/level_change_data_section2/PanelContainer"]
+layout_mode = 2
+text = "Loaded Level Change Data"
+horizontal_alignment = 1
+
+[node name="loading_levels_section" type="VBoxContainer" parent="HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer2/loading_levels_section"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4vwfx")
+
+[node name="Label" type="Label" parent="HBoxContainer2/loading_levels_section/PanelContainer"]
+layout_mode = 2
+text = "Loading Level"
+horizontal_alignment = 1
+
+[node name="PanelContainer2" type="Panel" parent="HBoxContainer2/loading_levels_section"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="loading_levels_list" type="VBoxContainer" parent="HBoxContainer2/loading_levels_section/PanelContainer2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2/loading_levels_section/PanelContainer2/loading_levels_list"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer2/loading_levels_section/PanelContainer2/loading_levels_list/HBoxContainer"]
+layout_mode = 2
+text = "Level Name: "
+
+[node name="level_name_label" type="Label" parent="HBoxContainer2/loading_levels_section/PanelContainer2/loading_levels_list/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "None"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer2/loading_levels_section/PanelContainer2/loading_levels_list"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer2/loading_levels_section/PanelContainer2/loading_levels_list/HBoxContainer2"]
+layout_mode = 2
+text = "Level Name: "
+
+[node name="level_progress_label" type="Label" parent="HBoxContainer2/loading_levels_section/PanelContainer2/loading_levels_list/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "None"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="reload_button" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reload Level"
+
+[node name="start_level_button" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Go to Start Level"
+
+[connection signal="pressed" from="HBoxContainer/reload_button" to="." method="_on_reload_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/start_level_button" to="." method="_on_start_level_button_pressed"]

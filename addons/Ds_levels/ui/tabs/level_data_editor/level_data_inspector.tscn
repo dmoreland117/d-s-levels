@@ -8,7 +8,7 @@
 [node name="level_data_inspector" type="VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 offset_right = 300.0
-offset_bottom = 324.0
+offset_bottom = 527.0
 script = ExtResource("1_6lqfa")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -181,11 +181,14 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
-item_count = 2
+item_count = 3
 popup/item_0/text = "loading_screen_1"
 popup/item_0/id = 0
 popup/item_1/text = "loading_screen_2"
 popup/item_1/id = 1
+popup/item_2/text = "None"
+popup/item_2/id = 20
+popup/item_2/separator = true
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
